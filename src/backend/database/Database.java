@@ -19,14 +19,10 @@ public class Database {
 
   /**
    * Connect to MySql database. Reference link: https://www.baeldung.com/java-connect-mysql
-   * 
-   * @param hostName localhost
-   * @param dbName edict
-   * @param userName root
-   * @param password password
+   *
    * @throws SQLException Can't access to database
    */
-  void getConnection() throws SQLException {
+  public void getConnection() throws SQLException {
     final String connectionUrl = "jdbc:mysql://" + hostName + ":3306/" + dbName
         + "?autoReconnect=true&verifyServerCertificate=false&useSSL=true";
 
@@ -92,11 +88,13 @@ public class Database {
   public void exportDataToCsv() throws SQLException, FileNotFoundException {
     PrintWriter pw = new PrintWriter(new File("E:\\dictionary.csv"));
     StringBuilder sb = new StringBuilder();
-    String selectAllData = "select * from ditionary";
+    String selectAllData = "select * from dictionary";
     PreparedStatement ps = connection.prepareStatement(selectAllData);
     ResultSet rs = ps.executeQuery();
 
-    for (int index = 0; index < 100; index++) {
+    // For your computer safety, please don't iterate through all the database. The database have
+    // 200000 rows and it might crash the app ¯\_(ツ)_/¯
+    for (int index = 0; index < 100 && rs.next(); index++) {
       sb.append(rs.getString("id"));
       sb.append("\t");
       sb.append(rs.getString("word"));
