@@ -1,0 +1,58 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Launch Fx",
+      "request": "launch",
+      "vmArgs": "--module-path E:\\javafx-sdk-17.0.0.1\\lib --add-modules javafx.controls,javafx.fxml",
+      "mainClass": "Fx",
+      "projectName": "OOP-Project_63ba9463"
+    },
+    {
+      "type": "java",
+      "name": "Launch Main",
+      "request": "launch",
+      "mainClass": "Main",
+      "vmArgs": "--module-path E:\\javafx-sdk-17.0.0.1\\lib --add-modules javafx.controls,javafx.fxml",
+      "projectName": "OOP-Project_63ba9463"
+    },
+    {
+      "type": "java",
+      "name": "Launch TextToSpeech",
+      "request": "launch",
+      "mainClass": "TextToSpeech",
+      "projectName": "OOP-Project_63ba9463"
+    },
+    {
+      "type": "java",
+      "name": "Launch Api",
+      "request": "launch",
+      "mainClass": "Api",
+      "projectName": "OOP-Project_63ba9463"
+    },
+    {
+      "type": "java",
+      "name": "Launch Database",
+      "request": "launch",
+      "mainClass": "Database",
+      "projectName": "OOP-Project_63ba9463"
+    },
+    {
+      "type": "java",
+      "name": "Launch Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    },
+    {
+      "type": "java",
+      "name": "Launch App",
+      "request": "launch",
+      "mainClass": "App",
+      "projectName": "OOP-Project_63ba9463"
+    }
+  ]
+}

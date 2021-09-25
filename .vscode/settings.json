@@ -1,0 +1,17 @@
+{
+  "java.project.sourcePaths": [
+    "src"
+  ],
+  "java.project.outputPath": "bin",
+  "java.project.referencedLibraries": {
+    "include": [
+      "lib/**/*.jar",
+      "javafx-sdk-17.0.0.1/lib/**/*.jar",
+      "freetts-1.2/lib/**/*.jar"
+    ],
+    "exclude": [
+      "freetts-1.2/lib/cmu_time_awb.jar"
+    ]
+  },
+  "java.checkstyle.configuration": "/google_checks.xml"
+}
