@@ -22,7 +22,7 @@ public class Database {
    *
    * @throws SQLException Can't access to database
    */
-  public void getConnection() throws SQLException {
+  public Database() throws SQLException {
     final String connectionUrl = "jdbc:mysql://" + hostName + ":3306/" + dbName
         + "?autoReconnect=true&verifyServerCertificate=false&useSSL=true";
 
