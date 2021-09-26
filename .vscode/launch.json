@@ -6,9 +6,17 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch Main",
+      "request": "launch",
+      "mainClass": "Main",
+      "vmArgs": "--module-path ${workspaceFolder}\\javafx-sdk-17.0.0.1\\lib --add-modules javafx.controls,javafx.fxml",
+      "projectName": "OOP-Project_63ba9463"
+    },
+    {
+      "type": "java",
       "name": "Launch Current File",
       "request": "launch",
       "mainClass": "${file}"
-    },
+    }
   ]
 }
