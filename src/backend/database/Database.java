@@ -17,6 +17,8 @@ public class Database {
 
   private Connection connection = null;
 
+  private PreparedStatement ps = null;
+
   /**
    * Connect to MySql database. Reference link: https://www.baeldung.com/java-connect-mysql
    *
@@ -30,6 +32,24 @@ public class Database {
   }
 
   /**
+   * Seach detail of word in database.
+   * 
+   * @param text word that need explaination
+   * @return detail of {@code text}
+   * @throws SQLException Can't access to database
+   */
+  public String searchWord(String text) throws SQLException {
+    final String sqlSearchWordDetail = "select detail from dictionary where word=?";
+    ps = connection.prepareStatement(sqlSearchWordDetail);
+
+    ps.setString(1, text);
+
+    ResultSet rs = ps.executeQuery();
+    String detail = rs.getString("detail");
+    return detail;
+  }
+
+  /**
    * Adding a new word to the database.
    * 
    * @param word Word to be added
@@ -38,7 +58,7 @@ public class Database {
    */
   public void insertNewWord(final String word, final String detail) throws SQLException {
     final String sqlInsertData = "insert into dictionary (word, detail) values (?, ?)";
-    PreparedStatement ps = connection.prepareStatement(sqlInsertData);
+    ps = connection.prepareStatement(sqlInsertData);
 
     ps.setString(1, word);
     ps.setString(2, detail);
@@ -54,7 +74,7 @@ public class Database {
    */
   public void deleteWord(final String word) throws SQLException {
     final String sqlDeleteData = "delete from dictionary where word=?";
-    PreparedStatement ps = connection.prepareStatement(sqlDeleteData);
+    ps = connection.prepareStatement(sqlDeleteData);
 
     ps.setString(1, word);
 
@@ -70,7 +90,7 @@ public class Database {
    */
   public void updateWordDefinition(final String word, final String detail) throws SQLException {
     final String sqlUpdateData = "update dictionary set detail=? where word=?";
-    PreparedStatement ps = connection.prepareStatement(sqlUpdateData);
+    ps = connection.prepareStatement(sqlUpdateData);
 
     ps.setString(1, detail);
     ps.setString(2, word);
@@ -89,7 +109,7 @@ public class Database {
     PrintWriter pw = new PrintWriter(new File("E:\\dictionary.csv"));
     StringBuilder sb = new StringBuilder();
     String selectAllData = "select * from dictionary";
-    PreparedStatement ps = connection.prepareStatement(selectAllData);
+    ps = connection.prepareStatement(selectAllData);
     ResultSet rs = ps.executeQuery();
 
     // For your computer safety, please don't iterate through all the database. The database have

@@ -55,6 +55,5 @@ public class TranslateApi {
   public String translate(String text) throws UnirestException {
     String translatedText = getTranslatedText(text);
     return translatedText;
-    // TODO: Check if API work on another computer that not sign in with rakuten rapidapi account
   }
 }
