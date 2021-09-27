@@ -3,7 +3,6 @@ package frontend;
 import backend.database.Database;
 import backend.dictionary.TextToSpeech;
 import java.net.URL;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -31,9 +30,7 @@ public class ScreenProperty implements Initializable {
 
     try {
       final Database definition = new Database();
-      ResultSet rs = definition.searchWord(inputString);
-      rs.next();
-      meaning = rs.getString("detail");
+      meaning = definition.searchWord(inputString);
       label.setText(meaning);
     } catch (SQLException e) {
       e.printStackTrace();

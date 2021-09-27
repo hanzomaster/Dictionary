@@ -16,46 +16,28 @@ public class Main extends Application {
     launch(args);
   }
 
-  public void start(Stage Primarystage) {
-    Primarystage.setTitle("Dictionary");
-    Primarystage.setResizable(false);
+  /**
+   * Start Application.
+   */
+  public void start(Stage primaryStage) {
+    primaryStage.setTitle("Dictionary");
+    primaryStage.setResizable(false);
     try {
-      Parent root = FXMLLoader.load(this.getClass().getResource("frontend/Controller.fxml"));
+      // ResourceBundle resource = ResourceBundle.getBundle("Language/lang_pt");
+      Parent root =
+          // FXMLLoader.load(getClass().getResource("./resources/fxml/Controller.fxml"), resource);
+          FXMLLoader.load(getClass().getResource("./resources/fxml/Controller.fxml"));
       // loader.setController("ScreenProperty");
       Scene scene = new Scene(root);
       scene.getStylesheets()
-          .add(getClass().getResource("frontend/Application.css").toExternalForm());
+          .add(getClass().getResource("./resources/fxml/Application.css").toExternalForm());
       /*
        * StackPane layout =new StackPane(); Scene scene =new Scene(layout,300,250);
        */
-      primarystage.setScene(scene);
-      primarystage.show();
+      primaryStage.setScene(scene);
+      primaryStage.show();
     } catch (Exception e) {
       System.out.println(e);
     }
   }
-  /*
-   * Primarystage.setTitle("Hello World"); FXMLLoader loader = new FXMLLoader();
-   * loader.setLocation(getClass().getResource("Controller.fxml")); Parent content = loader.load();
-   * Scene scene = new Scene(content,400,600); VBox layout = new VBox(); button.setText("Search");
-   * Scene scene = new Scene(layout,300,250); Label label = new Label();
-   * label.setText("Welcome to my dictionary."); layout.getChildren().addAll(label,button);
-   * 
-   * //scene 1 button.setOnAction(new EventHandler<ActionEvent>(){ public void handle(ActionEvent
-   * event) { Primarystage.setScene(scene1);; } }); StackPane layout1 = new StackPane();
-   * button2.setText("Go back"); layout1.getChildren().add(button2); scene1 = new
-   * Scene(layout1,500,300); button2.setOnAction(new EventHandler<ActionEvent>(){ public void
-   * handle(ActionEvent event) { Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-   * alert.setHeaderText("Alert Information"); alert.setContentText("Choose your option");
-   * alert.setTitle("Confirmation");
-   * 
-   * ButtonType buttonTypeYes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
-   * alert.getButtonTypes().addAll(buttonTypeYes); Optional<ButtonType> result =
-   * alert.showAndWait(); if(result.get() == buttonTypeYes ) System.out.println("Hello"); String
-   * message = result.get().getText(); Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
-   * alert1.setHeaderText("Information"); alert1.setTitle("Notification");
-   * alert1.setContentText(message); alert1.show();
-   * 
-   * } }); Primarystage.setScene(scene); Primarystage.show();
-   */
 }

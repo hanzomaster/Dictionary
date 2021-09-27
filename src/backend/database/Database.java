@@ -13,7 +13,7 @@ public class Database {
   private final String hostName = "localhost";
   private final String dbName = "edict";
   private final String userName = "root";
-  private final String password = "nguyen11092002"; // Your MySQL password go here
+  private final String password = "Hide29f90892@"; // Your MySQL password go here
 
   private Connection connection = null;
 
@@ -38,7 +38,7 @@ public class Database {
    * @return detail of {@code text}
    * @throws SQLException Can't access to database
    */
-  public ResultSet searchWord(String text) throws SQLException {
+  public String searchWord(String text) throws SQLException {
     final String sqlSearchWordDetail = "select detail from dictionary where word=?";
     ps = connection.prepareStatement(sqlSearchWordDetail);
 

@@ -16,7 +16,7 @@
       <graphic>
       <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="80.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@/resources/icon/searchicon.png" />
+            <Image url="@../icon/searchicon.png" />
          </image>
       </ImageView>
       </graphic>
@@ -24,29 +24,29 @@
       <TextField fx:id="inputText" layoutX="140.0" layoutY="95.0" prefHeight="33.0" prefWidth="395.0" />
       <ImageView fitHeight="84.0" fitWidth="92.0" layoutX="18.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@/resources/icon/photodemo.png" />
+            <Image url="@../icon/photodemo.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="92.0" fitWidth="389.0" layoutX="165.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@/resources/icon/dictionary3.png" />
+            <Image url="@../icon/dictionary3.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="33.0" fitWidth="160.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@/resources/icon/search.png" />
+            <Image url="@../icon/search.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="537.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@/resources/icon/engtovn.png" />
+            <Image url="@../icon/engtovn.png" />
          </image>
       </ImageView>
       <Button id="read" layoutX="20.0" layoutY="201.0" mnemonicParsing="false" onAction="#speakout" prefHeight="50.0" prefWidth="164.0" text="     READ">
       <graphic>
          <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="65.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
             <image>
-             <Image url="@/resources/icon/voiceicon.png" />
+             <Image url="@../icon/voiceicon.png" />
             </image>
          </ImageView>
       </graphic>
@@ -70,7 +70,7 @@
 
       <ImageView fitHeight="84.0" fitWidth="222.0" layoutX="360.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@/resources/icon/defintion.png" />
+            <Image url="@../icon/defintion.png" />
          </image>
       </ImageView>
    </children>
