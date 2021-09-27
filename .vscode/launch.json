@@ -8,6 +8,22 @@
       "type": "java",
       "name": "Launch Main",
       "request": "launch",
+      "vmArgs": "--module-path ${workspaceFolder}\\javafx-sdk-17.0.0.1\\lib --add-modules javafx.controls,javafx.fxml",
+      "mainClass": "Main",
+      "projectName": "OOP-Project_c27c49f6"
+    },
+    {
+      "type": "java",
+      "name": "Launch App",
+      "request": "launch",
+      "vmArgs": "--module-path ${workspaceFolder}\\javafx-sdk-17.0.0.1\\lib --add-modules javafx.controls,javafx.fxml",
+      "mainClass": "frontend.App",
+      "projectName": "OOP-Project_c27c49f6"
+    },
+    {
+      "type": "java",
+      "name": "Launch Main",
+      "request": "launch",
       "mainClass": "Main",
       "vmArgs": "--module-path ${workspaceFolder}\\javafx-sdk-17.0.0.1\\lib --add-modules javafx.controls,javafx.fxml",
       "projectName": "OOP-Project_63ba9463"

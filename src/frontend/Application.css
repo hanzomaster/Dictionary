@@ -1,0 +1,14 @@
+#button{
+    -fx-background-color : rgb(122, 234, 238);
+    -fx-padding : 10px 10px 10px 10px;
+    -fx-font-size : 20px;
+}
+#background {
+    -fx-background-color: rgba(134, 246, 250, 0.5);
+}
+#windowsearch {
+    -fx-background-color: #fff ;
+}
+#read {
+    -fx-background-color: rgba(15, 73, 233, 0.5)
+}
