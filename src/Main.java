@@ -16,11 +16,9 @@ public class Main extends Application {
     launch(args);
   }
 
-  /**
-   * Start fxml.
-   */
-  public void start(Stage primarystage) {
-    primarystage.setTitle("Dictionary");
+  public void start(Stage Primarystage) {
+    Primarystage.setTitle("Dictionary");
+    Primarystage.setResizable(false);
     try {
       Parent root = FXMLLoader.load(this.getClass().getResource("frontend/Controller.fxml"));
       // loader.setController("ScreenProperty");

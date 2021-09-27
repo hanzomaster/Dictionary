@@ -13,7 +13,7 @@ public class Database {
   private final String hostName = "localhost";
   private final String dbName = "edict";
   private final String userName = "root";
-  private final String password = "Hide29f90892@"; // Your MySQL password go here
+  private final String password = "nguyen11092002"; // Your MySQL password go here
 
   private Connection connection = null;
 
@@ -38,13 +38,14 @@ public class Database {
    * @return detail of {@code text}
    * @throws SQLException Can't access to database
    */
-  public String searchWord(String text) throws SQLException {
+  public ResultSet searchWord(String text) throws SQLException {
     final String sqlSearchWordDetail = "select detail from dictionary where word=?";
     ps = connection.prepareStatement(sqlSearchWordDetail);
 
     ps.setString(1, text);
 
     ResultSet rs = ps.executeQuery();
+
     rs.next();
     String detail = rs.getString("detail");
     return detail;
@@ -113,7 +114,8 @@ public class Database {
     ps = connection.prepareStatement(selectAllData);
     ResultSet rs = ps.executeQuery();
 
-    // For your computer safety, please don't iterate through all the database. The database have
+    // For your computer safety, please don't iterate through all the database. The
+    // database have
     // 200000 rows and it might crash the app ¯\_(ツ)_/¯
     for (int index = 0; index < 100 && rs.next(); index++) {
       sb.append(rs.getString("id"));
