@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="background" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.ScreenProperty">
+   <children>
+      <Button id="button" layoutX="544.0" layoutY="92.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#submit" prefHeight="18.0" prefWidth="186.0" text="Search">
+      <graphic>
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="80.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon/searchicon.png" />
+         </image>
+      </ImageView>
+      </graphic>
+      </Button>
+      <TextField fx:id="inputText" layoutX="140.0" layoutY="95.0" prefHeight="33.0" prefWidth="395.0" />
+      <ImageView fitHeight="84.0" fitWidth="92.0" layoutX="18.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon/photodemo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="92.0" fitWidth="389.0" layoutX="165.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon/dictionary3.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="33.0" fitWidth="160.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon/search.png" />
+         </image>
+      </ImageView>
+      <AnchorPane id="windowsearch" layoutX="187.0" layoutY="155.0" prefHeight="318.0" prefWidth="542.0">
+         <children>
+            <Button id="read" layoutX="463.0" layoutY="265.0" mnemonicParsing="false" onAction="#speakout" text="read">
+            <graphic>
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="80.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon/voice.png" />
+         </image>
+      </ImageView>
+      </graphic> 
+            </Button>
+            <Label fx:id="label" layoutX="51.0" layoutY="41.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="535.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon/engtovn.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -1,3 +1,4 @@
+package frontend;
 
 import java.util.Optional;
 import javafx.application.Application;
@@ -9,9 +10,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class App extends Application {
   Stage Window;
   Button button = new Button();
   Button button2 = new Button();
@@ -25,10 +33,10 @@ public class Main extends Application {
     Primarystage.setTitle("Dictionary");
     try {
       FXMLLoader loader = new FXMLLoader();
-      Parent root = loader.load(this.getClass().getResource("frontend/Controller.fxml"));
+      Parent root = loader.load(this.getClass().getResource("Controller.fxml"));
       // loader.setController("ScreenProperty");
       Scene scene = new Scene(root);
-      scene.getStylesheets().add(getClass().getResource("frontend/Application.css").toExternalForm());
+      scene.getStylesheets().add(getClass().getResource("Application.css").toExternalForm());
       /*
        * StackPane layout =new StackPane(); Scene scene =new Scene(layout,300,250);
        */
