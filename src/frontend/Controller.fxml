@@ -14,7 +14,7 @@
       <graphic>
       <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="80.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@icon/searchicon.png" />
+            <Image url="@/resources/icon/searchicon.png" />
          </image>
       </ImageView>
       </graphic>
@@ -22,17 +22,17 @@
       <TextField fx:id="inputText" layoutX="140.0" layoutY="95.0" prefHeight="33.0" prefWidth="395.0" />
       <ImageView fitHeight="84.0" fitWidth="92.0" layoutX="18.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@icon/photodemo.png" />
+            <Image url="@/resources/icon/photodemo.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="92.0" fitWidth="389.0" layoutX="165.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@icon/dictionary3.png" />
+            <Image url="@/resources/icon/dictionary3.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="33.0" fitWidth="160.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@icon/search.png" />
+            <Image url="@/resources/icon/search.png" />
          </image>
       </ImageView>
       <AnchorPane id="windowsearch" layoutX="187.0" layoutY="155.0" prefHeight="318.0" prefWidth="542.0">
@@ -41,7 +41,7 @@
             <graphic>
       <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="80.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@icon/voice.png" />
+            <Image url="@/resources/icon/voice.png" />
          </image>
       </ImageView>
       </graphic> 
@@ -55,7 +55,7 @@
       </AnchorPane>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="535.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@icon/engtovn.png" />
+            <Image url="@/resources/icon/engtovn.png" />
          </image>
       </ImageView>
    </children>
