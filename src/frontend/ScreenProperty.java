@@ -19,6 +19,11 @@ public class ScreenProperty implements Initializable {
   public String meaning = "";
   // public HTMLEditor htmlEditor;
 
+  /**
+   * Submit text to translate.
+   * 
+   * @param event take event
+   */
   public void submit(ActionEvent event) {
 
     // TranslateApi newTrans = new TranslateApi();
@@ -31,21 +36,8 @@ public class ScreenProperty implements Initializable {
       meaning = rs.getString("detail");
       label.setText(meaning);
     } catch (SQLException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
-    // String VNtrans = "";
-
-    /*
-     * try { // VNtrans = newTrans.translate(inputString); } catch (UnirestException e) { // TODO
-     * Auto-generated catch block e.printStackTrace(); System.out.println("Out of network"); }
-     */
-    /*
-     * Alert alert = new Alert(Alert.AlertType.INFORMATION); alert.setContentText("Word :" +
-     * inputString); alert.show();
-     */
-    // TextToSpeech speech = new TextToSpeech();
-    // speech.playSound(inputString);
 
   }
 
@@ -54,14 +46,6 @@ public class ScreenProperty implements Initializable {
     speech.playSound(inputString);
   }
 
-  public void initialize(URL Location, ResourceBundle resources) {}
+  public void initialize(URL location, ResourceBundle resources) {}
 
-  /*
-   * public ComboBox<String> comboBox; public Label label = new Label(); ObservableList<String> list
-   * = FXCollections.observableArrayList("VI-ENG", "ENG-VI");
-   * 
-   * public void initialize(URL Location, ResourceBundle resources) { comboBox.setItems(list); }
-   * 
-   * public void comboBoxChanged(ActionEvent event) { label.setText(comboBox.getValue()); }
-   */
 }

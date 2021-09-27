@@ -45,7 +45,10 @@ public class Database {
     ps.setString(1, text);
 
     ResultSet rs = ps.executeQuery();
-    return rs;
+
+    rs.next();
+    String detail = rs.getString("detail");
+    return detail;
   }
 
   /**

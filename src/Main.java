@@ -7,7 +7,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-  Stage Window;
+  Stage window;
   Button button = new Button();
   Button button2 = new Button();
   Scene scene1;
@@ -20,8 +20,7 @@ public class Main extends Application {
     Primarystage.setTitle("Dictionary");
     Primarystage.setResizable(false);
     try {
-      FXMLLoader loader = new FXMLLoader();
-      Parent root = loader.load(this.getClass().getResource("frontend/Controller.fxml"));
+      Parent root = FXMLLoader.load(this.getClass().getResource("frontend/Controller.fxml"));
       // loader.setController("ScreenProperty");
       Scene scene = new Scene(root);
       scene.getStylesheets()
@@ -29,8 +28,8 @@ public class Main extends Application {
       /*
        * StackPane layout =new StackPane(); Scene scene =new Scene(layout,300,250);
        */
-      Primarystage.setScene(scene);
-      Primarystage.show();
+      primarystage.setScene(scene);
+      primarystage.show();
     } catch (Exception e) {
       System.out.println(e);
     }
