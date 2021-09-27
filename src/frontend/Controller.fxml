@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,7 +16,7 @@
       <graphic>
       <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="80.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@/resources/icon/searchicon.png" />
+            <Image url="@../resources/icon/searchicon.png" />
          </image>
       </ImageView>
       </graphic>
@@ -22,40 +24,53 @@
       <TextField fx:id="inputText" layoutX="140.0" layoutY="95.0" prefHeight="33.0" prefWidth="395.0" />
       <ImageView fitHeight="84.0" fitWidth="92.0" layoutX="18.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@/resources/icon/photodemo.png" />
+            <Image url="@../resources/icon/photodemo.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="92.0" fitWidth="389.0" layoutX="165.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@/resources/icon/dictionary3.png" />
+            <Image url="@../resources/icon/dictionary3.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="33.0" fitWidth="160.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@/resources/icon/search.png" />
+            <Image url="@../resources/icon/search.png" />
          </image>
       </ImageView>
-      <AnchorPane id="windowsearch" layoutX="187.0" layoutY="155.0" prefHeight="318.0" prefWidth="542.0">
-         <children>
-            <Button id="read" layoutX="463.0" layoutY="265.0" mnemonicParsing="false" onAction="#speakout" text="read">
-            <graphic>
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="80.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="537.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@/resources/icon/voice.png" />
+            <Image url="@../resources/icon/engtovn.png" />
          </image>
       </ImageView>
-      </graphic> 
-            </Button>
-            <Label fx:id="label" layoutX="51.0" layoutY="41.0">
+      <Button id="read" layoutX="20.0" layoutY="201.0" mnemonicParsing="false" onAction="#speakout" prefHeight="50.0" prefWidth="164.0" text="     READ">
+      <graphic>
+         <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="65.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+             <Image url="@../resources/icon/voiceicon.png" />
+            </image>
+         </ImageView>
+      </graphic>
+      </Button>
+      <ScrollPane layoutX="194.0" layoutY="197.0" prefHeight="282.0" prefWidth="536.0">
+         <content>
+            <Label fx:id="label" alignment="CENTER" lineSpacing="1.0" mnemonicParsing="true" mouseTransparent="true" prefWidth="522.0" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
             </Label>
-         </children>
-      </AnchorPane>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="535.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+         </content>
+      </ScrollPane>
+
+      <Button layoutX="20.0" layoutY="276.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="164.0" text="USE GOOGLE API" />
+      <Button layoutX="20.0" layoutY="350.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="164.0" text="RETURN" />
+      <Button layoutX="20.0" layoutY="428.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="164.0" text="HELPS" />
+
+      <ImageView fitHeight="84.0" fitWidth="222.0" layoutX="360.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@/resources/icon/engtovn.png" />
+            <Image url="@../resources/icon/defintion.png" />
          </image>
       </ImageView>
    </children>

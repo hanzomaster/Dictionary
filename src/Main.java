@@ -23,6 +23,7 @@ public class Main extends Application {
 
   public void start(Stage Primarystage) {
     Primarystage.setTitle("Dictionary");
+    Primarystage.setResizable(false);
     try {
       FXMLLoader loader = new FXMLLoader();
       Parent root = loader.load(this.getClass().getResource("frontend/Controller.fxml"));
