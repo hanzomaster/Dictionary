@@ -17,6 +17,7 @@ public class ScreenProperty implements Initializable {
   public Label label = new Label();
   public String inputString = new String();
   public String meaning = "";
+  // public HTMLEditor htmlEditor;
 
   public void submit(ActionEvent event) {
 
