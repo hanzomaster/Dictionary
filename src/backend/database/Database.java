@@ -45,6 +45,7 @@ public class Database {
     ps.setString(1, text);
 
     ResultSet rs = ps.executeQuery();
+    rs.next();
     String detail = rs.getString("detail");
     return detail;
   }

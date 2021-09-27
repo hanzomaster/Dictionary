@@ -7,6 +7,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * https://www.lavivienpost.com/autocomplete-with-trie-code/
+ */
 public class WordSuggestion {
   static Trie word = new Trie();
 
