@@ -1,22 +1,12 @@
 package frontend;
 
-import javafx.beans.Observable;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import java.awt.*;
+import backend.dictionary.TextToSpeech;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import com.mashape.unirest.http.exceptions.UnirestException;
-
-import backend.api.TranslateApi;
-import backend.dictionary.TextToSpeech;
+import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 public class ScreenProperty implements Initializable {
   // public TextField height ;
@@ -24,6 +14,11 @@ public class ScreenProperty implements Initializable {
   public Label label = new Label();
   public String inputString = new String();
 
+  /**
+   * Submit text to translate.
+   * 
+   * @param event take event
+   */
   public void submit(ActionEvent event) {
 
     // TranslateApi newTrans = new TranslateApi();
@@ -31,13 +26,12 @@ public class ScreenProperty implements Initializable {
     // String VNtrans = "";
     label.setText(inputString);
     /*
-     * try { // VNtrans = newTrans.translate(inputString); } catch (UnirestException
-     * e) { // TODO Auto-generated catch block e.printStackTrace();
-     * System.out.println("Out of network"); }
+     * try { // VNtrans = newTrans.translate(inputString); } catch (UnirestException e) {
+     * e.printStackTrace(); System.out.println("Out of network"); }
      */
     /*
-     * Alert alert = new Alert(Alert.AlertType.INFORMATION);
-     * alert.setContentText("Word :" + inputString); alert.show();
+     * Alert alert = new Alert(Alert.AlertType.INFORMATION); alert.setContentText("Word :" +
+     * inputString); alert.show();
      */
     // TextToSpeech speech = new TextToSpeech();
     // speech.playSound(inputString);
@@ -49,18 +43,14 @@ public class ScreenProperty implements Initializable {
     speech.playSound(inputString);
   }
 
-  public void initialize(URL Location, ResourceBundle resources) {
-  }
+  public void initialize(URL location, ResourceBundle resources) {}
 
   /*
-   * public ComboBox<String> comboBox; public Label label = new Label();
-   * ObservableList<String> list = FXCollections.observableArrayList("VI-ENG",
-   * "ENG-VI");
+   * public ComboBox<String> comboBox; public Label label = new Label(); ObservableList<String> list
+   * = FXCollections.observableArrayList("VI-ENG", "ENG-VI");
    * 
-   * public void initialize(URL Location, ResourceBundle resources) {
-   * comboBox.setItems(list); }
+   * public void initialize(URL Location, ResourceBundle resources) { comboBox.setItems(list); }
    * 
-   * public void comboBoxChanged(ActionEvent event) {
-   * label.setText(comboBox.getValue()); }
+   * public void comboBoxChanged(ActionEvent event) { label.setText(comboBox.getValue()); }
    */
 }

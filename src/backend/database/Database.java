@@ -106,9 +106,9 @@ public class Database {
    * @throws FileNotFoundException Can't not find CSV file
    */
   public void exportDataToCsv() throws SQLException, FileNotFoundException {
-    PrintWriter pw = new PrintWriter(new File("E:\\dictionary.csv"));
+    PrintWriter pw = new PrintWriter(new File("dictionary.csv"));
     StringBuilder sb = new StringBuilder();
-    String selectAllData = "select * from dictionary";
+    final String selectAllData = "select * from dictionary";
     ps = connection.prepareStatement(selectAllData);
     ResultSet rs = ps.executeQuery();
 
@@ -124,7 +124,17 @@ public class Database {
     }
     pw.write(sb.toString());
     pw.close();
-
   }
 
+  /**
+   * Select all word from database.
+   * 
+   * @throws SQLException Can't access to database
+   */
+  public ResultSet selectAllWord() throws SQLException {
+    final String selectAllData = "select * from dictionary";
+    ps = connection.prepareStatement(selectAllData);
+    ResultSet rs = ps.executeQuery();
+    return rs;
+  }
 }
