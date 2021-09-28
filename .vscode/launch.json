@@ -8,7 +8,15 @@
       "type": "java",
       "name": "Launch Main",
       "request": "launch",
-      "vmArgs": "--module-path ${workspaceFolder}\\javafx-sdk-17.0.0.1\\lib --add-modules javafx.controls,javafx.fxml",
+      "vmArgs": "--module-path ${workspaceFolder}\\javafx-sdk-17.0.0.1\\lib --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.web",
+      "mainClass": "Main",
+      "projectName": "OOP-Project_c27c49f6"
+    },
+    {
+      "type": "java",
+      "name": "Launch Main",
+      "request": "launch",
+      "vmArgs": "--module-path ${workspaceFolder}\\javafx-sdk-17.0.0.1\\lib --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.web",
       "mainClass": "Main",
       "projectName": "OOP-Project_63ba9463"
     }

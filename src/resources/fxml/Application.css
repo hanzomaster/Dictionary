@@ -1,14 +1,55 @@
-#button{
-    -fx-background-color : rgb(122, 234, 238);
-    -fx-padding : 10px 10px 10px 10px;
-    -fx-font-size : 20px;
+#button {
+  -fx-background-color: rgb(122, 234, 238);
+  -fx-padding: 10px 10px 10px 10px;
+  -fx-font-size: 20px;
+  -fx-background-radius: 20px;
+}
+
+#button:hover {
+  -fx-background-color: rgb(30, 245, 155);
+}
+.button:pressed {
+  -fx-background-color: rgb(30, 245, 155);
+
+  -fx-border-color: rgb(49, 100, 79);
+  -fx-border-radius: 20px;
+  -fx-border-size: 3px;
 }
 #background {
-    -fx-background-color: rgba(134, 246, 250, 0.5);
+  -fx-background-color: rgba(134, 246, 250, 0.5);
 }
 #windowsearch {
-    -fx-background-color: #fff ;
+  -fx-background-color: #fff;
 }
 #read {
-    -fx-background-color: rgba(15, 73, 233, 0.5)
+  -fx-background-color: rgba(15, 73, 233, 0.5);
+  -fx-background-radius: 20px;
+}
+#read:hover {
+  -fx-background-color: rgba(15, 233, 142, 0.5);
+}
+
+#googlebutton {
+  -fx-background-color: rgba(15, 73, 233, 0.5);
+  -fx-background-radius: 20px;
+}
+#googlebutton:hover {
+  -fx-background-color: rgba(15, 233, 142, 0.5);
+}
+
+#dicbutton {
+  -fx-background-color: rgba(15, 73, 233, 0.5);
+  -fx-background-radius: 20px;
+}
+
+#dicbutton:hover {
+  -fx-background-color: rgba(15, 233, 142, 0.5);
+}
+#helpbutton {
+  -fx-background-color: rgba(15, 73, 233, 0.5);
+  -fx-background-radius: 20px;
+}
+
+#helpbutton:hover {
+  -fx-background-color: rgba(15, 233, 142, 0.5);
 }
