@@ -21,7 +21,7 @@ public class ScreenProperty implements Initializable {
   // public Label label = new Label();
   public String inputString = new String();
   public String meaning = "";
-  public String VNtrans = "";
+  public String vnTrans = "";
   public WebView webView;
   // WebEngine engine = webView.getEngine();
   public HTMLEditor htmlEditor;
@@ -42,8 +42,8 @@ public class ScreenProperty implements Initializable {
       final Database definition = new Database();
       meaning = definition.searchWord(inputString);
       // label.setText(meaning);
-      setHTML(meaning);
-      HTMLtoWebview(htmlEditor);
+      setHtml(meaning);
+      htmlToWebview(htmlEditor);
       // engine.loadContent(meaning, "text/html");
     } catch (SQLException e) {
       e.getMessage();
@@ -56,14 +56,14 @@ public class ScreenProperty implements Initializable {
 
   }
 
-  public void setHTML(String s) {
+  public void setHtml(String s) {
     htmlEditor.setHtmlText(s);
     // engine.loadContent(htmlEditor.getHtmlText(), "text/html");
   }
 
-  public void HTMLtoWebview(HTMLEditor aEditor) {
+  public void htmlToWebview(HTMLEditor editor) {
     WebEngine webEngine = webView.getEngine();
-    webEngine.loadContent(aEditor.getHtmlText(), "text/html");
+    webEngine.loadContent(editor.getHtmlText(), "text/html");
   }
 
   public void initialize(URL location, ResourceBundle resources) {
@@ -76,14 +76,14 @@ public class ScreenProperty implements Initializable {
   }
 
   public void googleapi(ActionEvent event) {
-    TranslateApi newTrans = new TranslateApi();
+    inputString = inputText.getText();
+
     try {
-      VNtrans = newTrans.translate(inputString);
-      setHTML(VNtrans);
-      HTMLtoWebview(htmlEditor);
+      vnTrans = TranslateApi.translate(inputString);
+      setHtml(vnTrans);
+      htmlToWebview(htmlEditor);
       // label.setText(VNtrans);
     } catch (UnirestException e) {
-      // TODO
       System.out.println("Out of network");
     }
 
