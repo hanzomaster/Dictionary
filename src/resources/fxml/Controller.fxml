@@ -64,7 +64,18 @@
          </content>
       </ScrollPane>
 
-      <Button layoutX="20.0" layoutY="276.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="164.0" text="USE GOOGLE API" />
+      <Button id="googlebutton" layoutX="20.0" layoutY="276.0" mnemonicParsing="false" onAction="#googleapi" prefHeight="50.0" prefWidth="164.0" text="GOOGLE TRANSLATE">
+         <font>
+            <Font size="10.0" />
+         </font>
+         <graphic>
+         <ImageView fitHeight="23.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+             <Image url="@../icon/googleicon.png" />
+            </image>
+         </ImageView>
+         </graphic>
+      </Button>
       <Button layoutX="20.0" layoutY="350.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="164.0" text="RETURN" />
       <Button layoutX="20.0" layoutY="428.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="164.0" text="HELPS" />
 
