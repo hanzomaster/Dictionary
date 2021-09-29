@@ -107,10 +107,12 @@ public class ScreenProperty implements Initializable {
       // ResourceBundle resource = ResourceBundle.getBundle("Language/lang_pt");
       Parent root1Parent =
           // FXMLLoader.load(getClass().getResource("./resources/fxml/Controller.fxml"), resource);
-          FXMLLoader.load(getClass().getResource("/resources/fxml/EditDatabase.fxml"));
+          FXMLLoader.load(getClass().getResource("../resources/fxml/EditDatabase.fxml"));
       // loader.setController("ScreenProperty");
       Stage newStage = new Stage();
       Scene scene1 = new Scene(root1Parent);
+      scene1.getStylesheets()
+          .add(getClass().getResource("../resources/fxml/EditDatabase.css").toExternalForm());
       /*
        * StackPane layout =new StackPane(); Scene scene =new Scene(layout,300,250);
        */

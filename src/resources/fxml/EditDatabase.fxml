@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.web.HTMLEditor?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="575.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="575.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.Editdatabase">
    <children>
-      <Button layoutX="394.0" layoutY="343.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="166.0" text="ADD WORD" />
-      <Button layoutX="204.0" layoutY="343.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="166.0" text="DELETE WORD" />
-      <Button layoutX="14.0" layoutY="343.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="166.0" text="MODIFY DEFINITION" />
+      <Button id="addbutton" layoutX="394.0" layoutY="343.0" mnemonicParsing="false" onAction="#addButtonClick" prefHeight="42.0" prefWidth="166.0" text="ADD WORD" />
+      <Button id="deletebutton" layoutX="204.0" layoutY="343.0" mnemonicParsing="false" onAction="#deleteButtonClick" prefHeight="42.0" prefWidth="166.0" text="DELETE WORD" />
+      <Button id="modifybutton" layoutX="14.0" layoutY="343.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="166.0" text="MODIFY DEFINITION" />
       <ImageView fitHeight="54.0" fitWidth="73.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icon/word.png" />
@@ -22,7 +23,8 @@
             <Image url="@../icon/insert.png" />
          </image>
       </ImageView>
-      <HTMLEditor htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="10.0" layoutY="75.0" prefHeight="250.0" prefWidth="556.0" />
-      <TextField layoutX="91.0" layoutY="14.0" prefHeight="26.0" prefWidth="472.0" promptText="Type your word here" />
+      <TextArea fx:id="taText" layoutX="314.0" layoutY="75.0" prefHeight="250.0" prefWidth="235.0" />
+      <HTMLEditor fx:id="hEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="10.0" layoutY="75.0" prefHeight="250.0" prefWidth="297.0" />
+      <TextField fx:id="word" layoutX="91.0" layoutY="14.0" prefHeight="26.0" prefWidth="472.0" promptText="Type your word here" />
    </children>
 </AnchorPane>

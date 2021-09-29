@@ -75,3 +75,10 @@
 #exportbutton:hover {
   -fx-background-color: rgb(30, 245, 155);
 }
+#exportbutton:pressed {
+  -fx-background-color: rgb(30, 245, 155);
+
+  -fx-border-radius: 0px;
+  -fx-border-color: rgb(49, 100, 79);
+  -fx-border-size: 3px;
+}
