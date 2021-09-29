@@ -8,12 +8,16 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.web.HTMLEditor;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import javafx.stage.Stage;
 
 public class ScreenProperty implements Initializable {
   // public TextField height ;
@@ -25,6 +29,9 @@ public class ScreenProperty implements Initializable {
   public WebView webView;
   // WebEngine engine = webView.getEngine();
   public HTMLEditor htmlEditor;
+  // private Stage newStage = new Stage();
+  // public Stage editStage = new Stage();
+  // public Editdatabase editdatabase = new Editdatabase();
 
   /**
    * Submit text to translate.
@@ -35,8 +42,6 @@ public class ScreenProperty implements Initializable {
 
     // TranslateApi newTrans = new TranslateApi();
     inputString = inputText.getText();
-
-
 
     try {
       final Database definition = new Database();
@@ -87,6 +92,35 @@ public class ScreenProperty implements Initializable {
       System.out.println("Out of network");
     }
 
+  }
+
+  public void xButtonClick(ActionEvent event) {
+    inputText.setText("");
+    setHtml("");
+    htmlToWebview(htmlEditor);
+  }
+
+  public void editButton(ActionEvent event) {
+
+    try {
+
+      // ResourceBundle resource = ResourceBundle.getBundle("Language/lang_pt");
+      Parent root1Parent =
+          // FXMLLoader.load(getClass().getResource("./resources/fxml/Controller.fxml"), resource);
+          FXMLLoader.load(getClass().getResource("/resources/fxml/EditDatabase.fxml"));
+      // loader.setController("ScreenProperty");
+      Stage newStage = new Stage();
+      Scene scene1 = new Scene(root1Parent);
+      /*
+       * StackPane layout =new StackPane(); Scene scene =new Scene(layout,300,250);
+       */
+      newStage.setTitle("Edit Word Definition.");
+      newStage.setResizable(false);
+      newStage.setScene(scene1);
+      newStage.show();
+    } catch (Exception e) {
+      System.out.println(e);
+    }
   }
 
   private void printStackTrace() {}

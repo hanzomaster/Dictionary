@@ -9,9 +9,9 @@
 <?import javafx.scene.web.HTMLEditor?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane id="background" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.ScreenProperty">
+<AnchorPane id="background" prefHeight="500.0" prefWidth="764.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.ScreenProperty">
    <children>
-      <Button id="button" layoutX="544.0" layoutY="92.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#submit" prefHeight="18.0" prefWidth="186.0" text="Search">
+      <Button id="button" layoutX="554.0" layoutY="92.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#submit" prefHeight="38.0" prefWidth="194.0" text="Search">
       <graphic>
       <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="80.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -20,7 +20,7 @@
       </ImageView>
       </graphic>
       </Button>
-      <TextField fx:id="inputText" layoutX="140.0" layoutY="95.0" prefHeight="33.0" prefWidth="395.0" />
+      <TextField fx:id="inputText" layoutX="140.0" layoutY="95.0" prefHeight="34.0" prefWidth="405.0" promptText="Type your word here." />
       <ImageView fitHeight="84.0" fitWidth="92.0" layoutX="18.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icon/photodemo.png" />
@@ -63,7 +63,7 @@
          </ImageView>
          </graphic>
       </Button>
-      <Button id="dicbutton" layoutX="20.0" layoutY="350.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="164.0" text="RETURN" />
+      <Button id="dicbutton" layoutX="20.0" layoutY="350.0" mnemonicParsing="false" onAction="#editButton" prefHeight="50.0" prefWidth="164.0" text="EDIT WORD " />
       <Button id="helpbutton" layoutX="20.0" layoutY="428.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="164.0" text="HELPS" />
 
       <ImageView fitHeight="84.0" fitWidth="222.0" layoutX="360.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
@@ -72,6 +72,16 @@
          </image>
       </ImageView>
       <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="484.0" layoutY="201.0" prefHeight="270.0" prefWidth="223.0" />
-      <WebView fx:id="webView" layoutX="208.0" layoutY="197.0" prefHeight="278.0" prefWidth="528.0" />
+      <WebView fx:id="webView" layoutX="208.0" layoutY="197.0" prefHeight="278.0" prefWidth="546.0" />
+      <Button id="buttonX" layoutX="522.0" layoutY="96.0" mnemonicParsing="false" onAction="#xButtonClick" prefHeight="32.0" prefWidth="24.0" text="X" />
+      <Button id="exportbutton" accessibleText="Export " ellipsisString="" layoutX="734.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="24.0">
+         <graphic>
+            <ImageView fitHeight="16.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/exporticon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>
