@@ -21,10 +21,9 @@ public class Editdatabase {
 
   private String inputDefinition = "";
 
-
-
-  // Alert alert = new Alert(Alert.AlertType.INFORMATION);
-
+  /**
+   * Add new word and definition to database.
+   */
   public void addButtonClick(ActionEvent event) {
 
     inputWord = word.getText();
@@ -64,7 +63,6 @@ public class Editdatabase {
           alert.show();
         }
       } catch (SQLException e) {
-        // TODO Auto-generated catch block
         e.printStackTrace();
       }
 
@@ -72,16 +70,16 @@ public class Editdatabase {
 
   }
 
-
+  /**
+   * Delete input word from database.
+   */
   public void deleteButtonClick(ActionEvent event) {
     inputWord = word.getText();
-
-    inputDefinition = hEditor.getHtmlText();
 
     try {
       final Database wordModify = new Database();
 
-      wordModify.deleteWord(inputWord);;
+      wordModify.deleteWord(inputWord);
 
       Alert alert3 = new Alert(Alert.AlertType.INFORMATION);
 
@@ -91,7 +89,6 @@ public class Editdatabase {
 
       alert3.show();
     } catch (SQLException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
   }

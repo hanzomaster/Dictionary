@@ -80,6 +80,9 @@ public class ScreenProperty implements Initializable {
     speech.playSound(inputString);
   }
 
+  /**
+   * Translate text using Google API.
+   */
   public void googleapi(ActionEvent event) {
     inputString = inputText.getText();
 
@@ -94,12 +97,18 @@ public class ScreenProperty implements Initializable {
 
   }
 
+  /**
+   * Clear user input and definition.
+   */
   public void xButtonClick(ActionEvent event) {
     inputText.setText("");
     setHtml("");
     htmlToWebview(htmlEditor);
   }
 
+  /**
+   * Button to add/delete/modify database.
+   */
   public void editButton(ActionEvent event) {
 
     try {
@@ -124,8 +133,4 @@ public class ScreenProperty implements Initializable {
       System.out.println(e);
     }
   }
-
-  private void printStackTrace() {}
-
-
 }

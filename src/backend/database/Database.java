@@ -46,9 +46,12 @@ public class Database {
 
     ResultSet rs = ps.executeQuery();
 
-    rs.next();
-    String detail = rs.getString("detail");
-    return detail;
+    if (rs.next() == false) {
+      return "";
+    } else {
+      String detail = rs.getString("detail");
+      return detail;
+    }
   }
 
   /**
