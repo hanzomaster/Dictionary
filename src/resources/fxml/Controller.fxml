@@ -41,7 +41,7 @@
             <Image url="@../icon/engtovn.png" />
          </image>
       </ImageView>
-      <Button id="read" layoutX="20.0" layoutY="201.0" mnemonicParsing="false" onAction="#speakout" prefHeight="50.0" prefWidth="164.0" text="     READ">
+      <Button id="read" layoutX="20.0" layoutY="201.0" mnemonicParsing="false" onAction="#speakout" prefHeight="50.0" prefWidth="164.0" text="     SPEAK">
       <graphic>
          <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="65.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -51,7 +51,7 @@
       </graphic>
       </Button>
 
-      <Button id="googlebutton" layoutX="20.0" layoutY="276.0" mnemonicParsing="false" onAction="#googleapi" prefHeight="50.0" prefWidth="164.0" text="GOOGLE TRANSLATE">
+      <Button id="googlebutton" layoutX="20.0" layoutY="276.0" mnemonicParsing="false" onAction="#googleApi" prefHeight="50.0" prefWidth="164.0" text="GOOGLE TRANSLATE">
          <font>
             <Font size="10.0" />
          </font>
@@ -72,11 +72,11 @@
          </image>
       </ImageView>
       <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="484.0" layoutY="201.0" prefHeight="270.0" prefWidth="223.0" />
-      <WebView fx:id="webView" layoutX="208.0" layoutY="197.0" prefHeight="278.0" prefWidth="546.0" />
-      <Button id="buttonX" layoutX="522.0" layoutY="96.0" mnemonicParsing="false" onAction="#xButtonClick" prefHeight="32.0" prefWidth="24.0" text="X" />
-      <Button id="exportbutton" accessibleText="Export " ellipsisString="" layoutX="734.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="24.0">
+      <WebView fx:id="webView" disable="true" layoutX="208.0" layoutY="197.0" prefHeight="278.0" prefWidth="546.0" />
+      <Button id="buttonX" layoutX="522.0" layoutY="96.0" mnemonicParsing="false" onAction="#xButtonClicked" prefHeight="32.0" prefWidth="24.0" text="X" />
+      <Button id="exportbutton" accessibleText="Export " ellipsisString="" layoutX="734.0" layoutY="-2.0" mnemonicParsing="false" onAction="#exportButton" prefHeight="32.0" prefWidth="24.0">
          <graphic>
-            <ImageView fitHeight="16.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="16.0" fitWidth="20.0" onDragDetected="#exportButton" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../icon/exporticon.png" />
                </image>

@@ -24,11 +24,11 @@ public class Main extends Application {
       // ResourceBundle resource = ResourceBundle.getBundle("Language/lang_pt");
       Parent root =
           // FXMLLoader.load(getClass().getResource("./resources/fxml/Controller.fxml"), resource);
-          FXMLLoader.load(getClass().getResource("./resources/fxml/Controller.fxml"));
+          FXMLLoader.load(getClass().getResource("/resources/fxml/Controller.fxml"));
       // loader.setController("ScreenProperty");
       Scene scene = new Scene(root);
       scene.getStylesheets()
-          .add(getClass().getResource("./resources/fxml/Application.css").toExternalForm());
+          .add(getClass().getResource("/resources/fxml/Application.css").toExternalForm());
       /*
        * StackPane layout =new StackPane(); Scene scene =new Scene(layout,300,250);
        */

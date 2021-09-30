@@ -4,6 +4,7 @@ import backend.api.TranslateApi;
 import backend.database.Database;
 import backend.dictionary.TextToSpeech;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -46,16 +47,22 @@ public class ScreenProperty implements Initializable {
     try {
       final Database definition = new Database();
       meaning = definition.searchWord(inputString);
-      // label.setText(meaning);
-      setHtml(meaning);
-      htmlToWebview(htmlEditor);
+
+      if (meaning == "" || inputString == "") {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText("Word not found. Please use Google Translate.");
+        alert.show();
+        setHtml("");
+        htmlToWebview(htmlEditor);
+      } else {
+        // label.setText(meaning);
+        setHtml(meaning);
+        htmlToWebview(htmlEditor);
+
+      }
       // engine.loadContent(meaning, "text/html");
     } catch (SQLException e) {
       e.getMessage();
-      Alert alert = new Alert(Alert.AlertType.INFORMATION);
-      alert.setContentText("Word not found. Please use Google Translate.");
-      alert.show();
-
     }
 
 
@@ -83,7 +90,7 @@ public class ScreenProperty implements Initializable {
   /**
    * Translate text using Google API.
    */
-  public void googleapi(ActionEvent event) {
+  public void googleApi(ActionEvent event) {
     inputString = inputText.getText();
 
     try {
@@ -100,7 +107,7 @@ public class ScreenProperty implements Initializable {
   /**
    * Clear user input and definition.
    */
-  public void xButtonClick(ActionEvent event) {
+  public void xButtonClicked(ActionEvent event) {
     inputText.setText("");
     setHtml("");
     htmlToWebview(htmlEditor);
@@ -133,4 +140,19 @@ public class ScreenProperty implements Initializable {
       System.out.println(e);
     }
   }
+
+  public void exportButton(ActionEvent event) throws FileNotFoundException {
+
+    try {
+      final Database exDatabase = new Database();
+      exDatabase.exportDataToCsv();;
+      Alert alert5 = new Alert(Alert.AlertType.INFORMATION);
+      alert5.setContentText("Export complete.");
+      alert5.show();
+
+    } catch (SQLException e) {
+      e.getMessage();
+    }
+  }
+
 }
