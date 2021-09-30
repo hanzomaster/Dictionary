@@ -3,6 +3,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -20,6 +21,8 @@ public class Main extends Application {
   public void start(Stage primaryStage) {
     primaryStage.setTitle("Dictionary");
     primaryStage.setResizable(false);
+    Image icon = new Image("/resources/icon/photodemo.png");
+    primaryStage.getIcons().add(icon);
     try {
       // ResourceBundle resource = ResourceBundle.getBundle("Language/lang_pt");
       Parent root =
@@ -39,3 +42,5 @@ public class Main extends Application {
     }
   }
 }
+
+

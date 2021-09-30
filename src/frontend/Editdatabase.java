@@ -20,6 +20,7 @@ public class Editdatabase {
 
   private String inputDefinition = "";
 
+
   /**
    * Add new word and definition to database.
    */

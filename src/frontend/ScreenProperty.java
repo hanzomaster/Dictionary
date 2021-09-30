@@ -7,6 +7,7 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +15,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.web.HTMLEditor;
 import javafx.scene.web.WebEngine;
@@ -68,12 +71,12 @@ public class ScreenProperty implements Initializable {
 
   }
 
-  public void setHtml(String s) {
+  private void setHtml(String s) {
     htmlEditor.setHtmlText(s);
     // engine.loadContent(htmlEditor.getHtmlText(), "text/html");
   }
 
-  public void htmlToWebview(HTMLEditor editor) {
+  private void htmlToWebview(HTMLEditor editor) {
     WebEngine webEngine = webView.getEngine();
     webEngine.loadContent(editor.getHtmlText(), "text/html");
   }
@@ -118,6 +121,7 @@ public class ScreenProperty implements Initializable {
    */
   public void editButton(ActionEvent event) {
 
+
     try {
 
       // ResourceBundle resource = ResourceBundle.getBundle("Language/lang_pt");
@@ -143,15 +147,24 @@ public class ScreenProperty implements Initializable {
 
   public void exportButton(ActionEvent event) throws FileNotFoundException {
 
-    try {
-      final Database exDatabase = new Database();
-      exDatabase.exportDataToCsv();;
-      Alert alert5 = new Alert(Alert.AlertType.INFORMATION);
-      alert5.setContentText("Export complete.");
-      alert5.show();
+    Alert alert6 = new Alert(AlertType.CONFIRMATION);
 
-    } catch (SQLException e) {
-      e.getMessage();
+    alert6.setHeaderText("Do you really want to export this dictionary file?");
+
+    Optional<ButtonType> result = alert6.showAndWait();
+
+    if (result.get() == ButtonType.OK && result.isPresent()) {
+
+      try {
+        final Database exDatabase = new Database();
+        exDatabase.exportDataToCsv();
+        Alert alert5 = new Alert(Alert.AlertType.INFORMATION);
+        alert5.setContentText("Export complete.");
+        alert5.show();
+
+      } catch (SQLException e) {
+        e.getMessage();
+      }
     }
   }
 
