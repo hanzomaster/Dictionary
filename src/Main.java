@@ -1,5 +1,4 @@
 
-import java.io.File;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,7 +17,7 @@ public class Main extends Application {
   public void start(Stage primaryStage) {
     primaryStage.setTitle("Dictionary");
     primaryStage.setResizable(false);
-    Image icon = new Image(new File("./resources/icon/photodemo.png").toURI().toString());
+    Image icon = new Image("./resources/icon/photodemo.png");
     primaryStage.getIcons().add(icon);
     try {
       Parent root = FXMLLoader
