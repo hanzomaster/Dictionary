@@ -1,5 +1,5 @@
 #button {
-  -fx-background-color: rgb(122, 234, 238);
+  -fx-background-color: rgb(78, 238, 243);
   -fx-padding: 10px 10px 10px 10px;
   -fx-font-size: 20px;
   -fx-background-radius: 20px;
@@ -52,4 +52,33 @@
 
 #helpbutton:hover {
   -fx-background-color: rgba(15, 233, 142, 0.5);
+}
+#buttonX {
+  -fx-background-color: rgb(255, 4, 4);
+}
+#buttonX:hover {
+  -fx-background-color: rgba(18, 157, 161, 0.5);
+}
+#buttonX:pressed {
+  -fx-background-color: rgba(18, 157, 161, 0.5);
+
+  -fx-border-color: rgb(49, 100, 79);
+  -fx-border-radius: 0px;
+  -fx-border-size: 3px;
+}
+#exportbutton {
+  -fx-background-color: rgb(24, 193, 245);
+  -fx-padding: 10px 10px 10px 10px;
+  -fx-font-size: 20px;
+}
+
+#exportbutton:hover {
+  -fx-background-color: rgb(30, 245, 155);
+}
+#exportbutton:pressed {
+  -fx-background-color: rgb(30, 245, 155);
+
+  -fx-border-radius: 0px;
+  -fx-border-color: rgb(49, 100, 79);
+  -fx-border-size: 3px;
 }

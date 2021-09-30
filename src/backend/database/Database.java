@@ -13,7 +13,7 @@ public class Database {
   private final String hostName = "localhost";
   private final String dbName = "edict";
   private final String userName = "root";
-  private final String password = "Hide29f90892@"; // Your MySQL password go here
+  private final String password = "nguyen11092002"; // Your MySQL password go here
 
   private Connection connection = null;
 
@@ -46,9 +46,12 @@ public class Database {
 
     ResultSet rs = ps.executeQuery();
 
-    rs.next();
-    String detail = rs.getString("detail");
-    return detail;
+    if (rs.next() == false) {
+      return "";
+    } else {
+      String detail = rs.getString("detail");
+      return detail;
+    }
   }
 
   /**

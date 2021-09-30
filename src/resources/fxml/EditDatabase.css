@@ -1,0 +1,36 @@
+#background{
+    -fx-background-color: rgba(104, 217, 245, 0.5)
+}
+
+#modifybutton{
+    -fx-background-color: rgba(15, 73, 233, 0.5);
+  -fx-background-radius: 20px;
+}
+#deletebutton{
+    -fx-background-color: rgba(15, 73, 233, 0.5);
+  -fx-background-radius: 20px;
+}
+#addbutton{
+    -fx-background-color: rgba(15, 73, 233, 0.5);
+  -fx-background-radius: 20px;
+}
+
+#modifybutton:hover {
+    -fx-background-color: rgb(30, 245, 155);
+  }
+
+#deletebutton:hover {
+    -fx-background-color: rgb(30, 245, 155);
+}
+
+#addbutton:hover {
+    -fx-background-color: rgb(30, 245, 155);
+}
+    
+.button:pressed {
+    -fx-background-color: rgb(30, 245, 155);
+  
+    -fx-border-color: rgb(49, 100, 79);
+    -fx-border-radius: 20px;
+    -fx-border-size: 3px;
+  }
