@@ -12,7 +12,7 @@ public class Editdatabase {
 
   public TextField word;
 
-  public HTMLEditor hEditor;
+  public HTMLEditor htmlEditor;
 
   // public TextArea taText;
 
@@ -28,9 +28,9 @@ public class Editdatabase {
 
     inputWord = word.getText();
 
-    inputDefinition = hEditor.getHtmlText();
+    inputDefinition = htmlEditor.getHtmlText();
 
-    if (hEditor.getHtmlText()
+    if (htmlEditor.getHtmlText()
         .equals("<html dir=\"ltr\"><head></head><body contenteditable=\"true\"></body></html>")) {
       inputDefinition = "";
     }
@@ -96,11 +96,14 @@ public class Editdatabase {
     }
   }
 
+  /**
+   * Modify word definiton in database.
+   */
   public void modifyButtonClicked(ActionEvent event) {
     inputWord = word.getText();
-    inputDefinition = hEditor.getHtmlText();
+    inputDefinition = htmlEditor.getHtmlText();
 
-    if (hEditor.getHtmlText()
+    if (htmlEditor.getHtmlText()
         .equals("<html dir=\"ltr\"><head></head><body contenteditable=\"true\"></body></html>")) {
       inputDefinition = "";
     }
@@ -123,9 +126,7 @@ public class Editdatabase {
         alert4.setTitle("ERROR");
 
         alert4.show();
-      }
-
-      else {
+      } else {
 
         wordModify.updateWordDefinition(inputWord, inputDefinition);
 

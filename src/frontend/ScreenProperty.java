@@ -145,6 +145,9 @@ public class ScreenProperty implements Initializable {
     }
   }
 
+  /**
+   * Export all database to CSV file.
+   */
   public void exportButton(ActionEvent event) throws FileNotFoundException {
 
     Alert alert6 = new Alert(AlertType.CONFIRMATION);
