@@ -58,13 +58,27 @@
          <graphic>
          <ImageView fitHeight="23.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
             <image>
-             <Image url="@../icon/googleicon.png" />
+             <Image url="@../icon/googletransicon.png" />
             </image>
          </ImageView>
          </graphic>
       </Button>
-      <Button id="dicbutton" layoutX="20.0" layoutY="350.0" mnemonicParsing="false" onAction="#editButton" prefHeight="50.0" prefWidth="164.0" text="EDIT WORD " />
-      <Button id="helpbutton" layoutX="20.0" layoutY="428.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="164.0" text="HELPS" />
+      <Button id="dicbutton" layoutX="20.0" layoutY="350.0" mnemonicParsing="false" onAction="#editButton" prefHeight="50.0" prefWidth="164.0" text="EDIT WORD ">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/editicon.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button id="helpbutton" layoutX="20.0" layoutY="428.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="164.0" text="   HELPS">
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/helpicon.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
 
       <ImageView fitHeight="84.0" fitWidth="222.0" layoutX="360.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
          <image>
