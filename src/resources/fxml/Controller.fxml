@@ -72,7 +72,7 @@
          </image>
       </ImageView>
       <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="484.0" layoutY="201.0" prefHeight="270.0" prefWidth="223.0" />
-      <WebView fx:id="webView"  layoutX="208.0" layoutY="197.0" prefHeight="278.0" prefWidth="546.0" />
+      <WebView fx:id="webView" layoutX="208.0" layoutY="197.0" prefHeight="278.0" prefWidth="546.0" />
       <Button id="buttonX" layoutX="522.0" layoutY="96.0" mnemonicParsing="false" onAction="#xButtonClicked" prefHeight="32.0" prefWidth="24.0" text="X" />
       <Button id="exportbutton" accessibleText="Export " ellipsisString="" layoutX="734.0" layoutY="-2.0" mnemonicParsing="false" onAction="#exportButton" prefHeight="32.0" prefWidth="24.0">
          <graphic>

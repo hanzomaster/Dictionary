@@ -12,7 +12,7 @@ public class Editdatabase {
 
   public TextField word;
 
-  public HTMLEditor htmlEditor;
+  public HTMLEditor detailEditor;
 
   // public TextArea taText;
 
@@ -28,9 +28,9 @@ public class Editdatabase {
 
     inputWord = word.getText();
 
-    inputDefinition = htmlEditor.getHtmlText();
+    inputDefinition = detailEditor.getHtmlText();
 
-    if (htmlEditor.getHtmlText()
+    if (detailEditor.getHtmlText()
         .equals("<html dir=\"ltr\"><head></head><body contenteditable=\"true\"></body></html>")) {
       inputDefinition = "";
     }
@@ -101,9 +101,9 @@ public class Editdatabase {
    */
   public void modifyButtonClicked(ActionEvent event) {
     inputWord = word.getText();
-    inputDefinition = htmlEditor.getHtmlText();
+    inputDefinition = detailEditor.getHtmlText();
 
-    if (htmlEditor.getHtmlText()
+    if (detailEditor.getHtmlText()
         .equals("<html dir=\"ltr\"><head></head><body contenteditable=\"true\"></body></html>")) {
       inputDefinition = "";
     }

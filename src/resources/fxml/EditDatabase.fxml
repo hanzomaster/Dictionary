@@ -22,7 +22,7 @@
             <Image url="@../icon/insert.png" />
          </image>
       </ImageView>
-      <HTMLEditor fx:id="hEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="10.0" layoutY="75.0" prefHeight="250.0" prefWidth="558.0" />
+      <HTMLEditor fx:id="detailEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="10.0" layoutY="75.0" prefHeight="250.0" prefWidth="558.0" />
       <TextField fx:id="word" layoutX="91.0" layoutY="14.0" prefHeight="26.0" prefWidth="472.0" promptText="Type your word here" />
    </children>
 </AnchorPane>
