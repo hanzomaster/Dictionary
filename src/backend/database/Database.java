@@ -13,14 +13,15 @@ public class Database {
   private final String hostName = "localhost";
   private final String dbName = "edict";
   private final String userName = "root";
-  private final String password = "nguyen11092002"; // Your MySQL password go here
+  private final String password = "Hide29f90892@"; // Your MySQL password go here
 
   private Connection connection = null;
 
   private PreparedStatement ps = null;
 
   /**
-   * Connect to MySql database. Reference link: https://www.baeldung.com/java-connect-mysql
+   * Connect to MySql database. Reference link:
+   * https://www.baeldung.com/java-connect-mysql
    *
    * @throws SQLException Can't access to database
    */
@@ -57,7 +58,7 @@ public class Database {
   /**
    * Adding a new word to the database.
    * 
-   * @param word Word to be added
+   * @param word   Word to be added
    * @param detail Definition of the word in <b>html</b> format
    * @throws SQLException Can't access to database
    */
@@ -89,7 +90,7 @@ public class Database {
   /**
    * Update a word definition.
    * 
-   * @param word Word that to be updated
+   * @param word   Word that to be updated
    * @param detail new definition detail
    * @throws SQLException Can't access to database
    */
@@ -107,7 +108,7 @@ public class Database {
    * Export all database to CSV file. Reference link:
    * https://www.youtube.com/watch?v=b_KN2XAWtwQ&t=347s
    * 
-   * @throws SQLException Can't access database
+   * @throws SQLException          Can't access database
    * @throws FileNotFoundException Can't not find CSV file
    */
   public void exportDataToCsv() throws SQLException, FileNotFoundException {

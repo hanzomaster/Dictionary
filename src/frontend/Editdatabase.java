@@ -1,12 +1,13 @@
 package frontend;
 
 import backend.database.Database;
+
 import java.sql.SQLException;
+
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.web.HTMLEditor;
-
 
 public class Editdatabase {
 
@@ -19,7 +20,6 @@ public class Editdatabase {
   private String inputWord = "";
 
   private String inputDefinition = "";
-
 
   /**
    * Add new word and definition to database.
@@ -139,8 +139,6 @@ public class Editdatabase {
         alert3.show();
         System.out.println(inputDefinition.length());
         System.out.println(inputDefinition);
-        System.out.println(
-            "<html dir=\"ltr\"><head></head><body contenteditable=\"true\"></body></html>");
       }
     } catch (SQLException e) {
       e.printStackTrace();

@@ -3,12 +3,16 @@ package frontend;
 import backend.api.TranslateApi;
 import backend.database.Database;
 import backend.dictionary.TextToSpeech;
+import backend.dictionary.WordSuggestion;
+
 import com.mashape.unirest.http.exceptions.UnirestException;
+
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,6 +26,8 @@ import javafx.scene.web.HTMLEditor;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+
+import org.controlsfx.control.textfield.TextFields;
 
 public class ScreenProperty implements Initializable {
   // public TextField height ;
@@ -68,7 +74,6 @@ public class ScreenProperty implements Initializable {
       e.getMessage();
     }
 
-
   }
 
   private void setHtml(String s) {
@@ -81,8 +86,10 @@ public class ScreenProperty implements Initializable {
     webEngine.loadContent(editor.getHtmlText(), "text/html");
   }
 
+  @Override
   public void initialize(URL location, ResourceBundle resources) {
-
+    // String[] words = { "thinh", "thinhrom", "hanzo", "nguyen" };
+    TextFields.bindAutoCompletion(inputText, WordSuggestion.suggestedWords);
   }
 
   public void speakout(ActionEvent event) {
@@ -121,18 +128,17 @@ public class ScreenProperty implements Initializable {
    */
   public void editButton(ActionEvent event) {
 
-
     try {
 
       // ResourceBundle resource = ResourceBundle.getBundle("Language/lang_pt");
       Parent root1Parent =
-          // FXMLLoader.load(getClass().getResource("./resources/fxml/Controller.fxml"), resource);
+          // FXMLLoader.load(getClass().getResource("./resources/fxml/Controller.fxml"),
+          // resource);
           FXMLLoader.load(getClass().getResource("../resources/fxml/EditDatabase.fxml"));
       // loader.setController("ScreenProperty");
       Stage newStage = new Stage();
       Scene scene1 = new Scene(root1Parent);
-      scene1.getStylesheets()
-          .add(getClass().getResource("../resources/fxml/EditDatabase.css").toExternalForm());
+      scene1.getStylesheets().add(getClass().getResource("../resources/fxml/EditDatabase.css").toExternalForm());
       /*
        * StackPane layout =new StackPane(); Scene scene =new Scene(layout,300,250);
        */
