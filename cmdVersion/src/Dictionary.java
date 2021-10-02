@@ -26,4 +26,8 @@ public class Dictionary {
     }
     return null;
   }
+
+  public static List<Word> getAllWords() {
+    return words;
+  }
 }

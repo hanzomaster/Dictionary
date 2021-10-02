@@ -46,19 +46,60 @@ public class DictionaryManagement {
     }
   }
 
+  /**
+   * Look up input word in dictionary.
+   */
   public void dictionaryLookup() {
-
+    System.out.println("Type your word: ");
+    Scanner scanner = new Scanner(System.in);
+    String word_target = scanner.nextLine();
+    if (Dictionary.searchWord(word_target) != null) {
+      System.out.println(word_target + " \t" + Dictionary.searchWord(word_target).getWordExplain());
+    } else {
+      System.out.println("Can't find " + word_target + " in dictionary");
+    }
+    scanner.close();
   }
 
   public void insertNewWord(String word, String definitio) {
 
   }
 
+  /**
+   * Delete input word.
+   * 
+   * @param word
+   */
   public void deleteWord(String word) {
+    System.out.println("Insert word wanted to delete: ");
+    Scanner sc = new Scanner(System.in);
+    String wordDeleteTarget = sc.nextLine();
+    Word wordDelete = Dictionary.searchWord(wordDeleteTarget);
+    if (wordDelete == null) {
+      System.out.println("Can't find " + wordDeleteTarget + "in dictionary.");
+    } else {
+      Dictionary.removeWord(wordDelete);
+    }
 
+    sc.close();
   }
 
   public void modifyWordDefinition(String word) {
+    System.out.println("Type your word: ");
+    Scanner sc = new Scanner(System.in);
+    String wordUpdateTarget = sc.nextLine();
+    Word wordUpdate = Dictionary.searchWord(wordUpdateTarget);
+    int index = Dictionary.getAllWords().indexOf(wordUpdate);
+    if (index != -1) {
+      System.out.print("Defition: ");
+      String wordUpdateExplain = sc.nextLine();
+      Dictionary.getAllWords().set(index, new Word(wordUpdateTarget, wordUpdateExplain));
+      System.out.print("You change " + wordUpdateTarget + " to " + wordUpdateExplain + ".");
+    } else {
+      System.out.println(wordUpdateTarget + " is not found.");
+    }
 
+    sc.close();
   }
 }
+
