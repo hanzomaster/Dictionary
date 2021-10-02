@@ -114,13 +114,13 @@ public class Database {
   public void exportDataToCsv() throws SQLException, FileNotFoundException {
     PrintWriter pw = new PrintWriter(new File("dictionary.csv"));
     StringBuilder sb = new StringBuilder();
-    final String selectAllData = "select * from dictionary";
-    ps = connection.prepareStatement(selectAllData);
-    ResultSet rs = ps.executeQuery();
+    ResultSet rs = selectAllWord();
 
-    // For your computer safety, please don't iterate through all the database. The
-    // database have
-    // 200000 rows and it might crash the app ¯\_(ツ)_/¯
+    /*
+     * NOTE: For your computer safety, please don't iterate through all the
+     * database. The database have 200000 rows and it might crash the app ¯\_(ツ)_/¯
+     * TODO: Iterate through all database
+     */
     for (int index = 0; index < 100 && rs.next(); index++) {
       sb.append(rs.getString("id"));
       sb.append("\t");

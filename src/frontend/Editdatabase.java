@@ -50,6 +50,7 @@ public class Editdatabase {
 
           alert2.show();
         } else {
+          // https://stackoverflow.com/questions/45778462/update-autocomplete-javafx
           WordSuggestion.suggestedWords.add(inputWord);
           ScreenProperty.provider.clearSuggestions();
           ScreenProperty.provider.addPossibleSuggestions(WordSuggestion.suggestedWords);
