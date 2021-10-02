@@ -15,7 +15,7 @@ import javafx.stage.WindowEvent;
 
 public class Main extends Application {
   /**
-   * Click Run to run the application.
+   * TODO: Click Run to run the application.
    */
   public static void main(String[] args) {
     try {
@@ -23,7 +23,6 @@ public class Main extends Application {
     } catch (SQLException e1) {
       e1.printStackTrace();
     }
-
     launch(args);
   }
 

@@ -1,6 +1,7 @@
 package frontend;
 
 import backend.database.Database;
+import backend.dictionary.WordSuggestion;
 
 import java.sql.SQLException;
 
@@ -10,15 +11,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.web.HTMLEditor;
 
 public class Editdatabase {
-
   public TextField word;
-
   public HTMLEditor detailEditor;
 
-  // public TextArea taText;
-
   private String inputWord = "";
-
   private String inputDefinition = "";
 
   /**
@@ -54,6 +50,9 @@ public class Editdatabase {
 
           alert2.show();
         } else {
+          WordSuggestion.suggestedWords.add(inputWord);
+          ScreenProperty.provider.clearSuggestions();
+          ScreenProperty.provider.addPossibleSuggestions(WordSuggestion.suggestedWords);
 
           wordAdd.insertNewWord(inputWord, inputDefinition);
 
@@ -68,9 +67,7 @@ public class Editdatabase {
       } catch (SQLException e) {
         e.printStackTrace();
       }
-
     }
-
   }
 
   /**
@@ -78,8 +75,11 @@ public class Editdatabase {
    */
   public void deleteButtonClicked(ActionEvent event) {
     inputWord = word.getText();
-
     try {
+      WordSuggestion.suggestedWords.remove(inputWord);
+      ScreenProperty.provider.clearSuggestions();
+      ScreenProperty.provider.addPossibleSuggestions(WordSuggestion.suggestedWords);
+
       final Database wordDelete = new Database();
 
       wordDelete.deleteWord(inputWord);

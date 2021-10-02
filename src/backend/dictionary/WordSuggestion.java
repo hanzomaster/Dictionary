@@ -7,9 +7,6 @@ import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * https://www.lavivienpost.com/autocomplete-with-trie-code/
- */
 public class WordSuggestion {
   public static Set<String> suggestedWords = new HashSet<>();
 

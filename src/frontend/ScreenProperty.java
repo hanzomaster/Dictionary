@@ -7,6 +7,9 @@ import backend.dictionary.WordSuggestion;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
 
+import impl.org.controlsfx.autocompletion.AutoCompletionTextFieldBinding;
+import impl.org.controlsfx.autocompletion.SuggestionProvider;
+
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -27,21 +30,15 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
-import org.controlsfx.control.textfield.TextFields;
-
 public class ScreenProperty implements Initializable {
-  // public TextField height ;
   public TextField inputText;
-  // public Label label = new Label();
-  public String inputString = new String();
-  public String meaning = "";
-  public String vnTrans = "";
+  public String inputString = "";
   public WebView webView;
-  // WebEngine engine = webView.getEngine();
   public HTMLEditor htmlEditor;
-  // private Stage newStage = new Stage();
-  // public Stage editStage = new Stage();
-  // public Editdatabase editdatabase = new Editdatabase();
+
+  private String meaning = "";
+  private String vnTrans = "";
+  static SuggestionProvider<String> provider;
 
   /**
    * Submit text to translate.
@@ -50,7 +47,6 @@ public class ScreenProperty implements Initializable {
    */
   public void submit(ActionEvent event) {
 
-    // TranslateApi newTrans = new TranslateApi();
     inputString = inputText.getText();
 
     try {
@@ -64,12 +60,10 @@ public class ScreenProperty implements Initializable {
         setHtml("");
         htmlToWebview(htmlEditor);
       } else {
-        // label.setText(meaning);
         setHtml(meaning);
         htmlToWebview(htmlEditor);
 
       }
-      // engine.loadContent(meaning, "text/html");
     } catch (SQLException e) {
       e.getMessage();
     }
@@ -78,7 +72,6 @@ public class ScreenProperty implements Initializable {
 
   private void setHtml(String s) {
     htmlEditor.setHtmlText(s);
-    // engine.loadContent(htmlEditor.getHtmlText(), "text/html");
   }
 
   private void htmlToWebview(HTMLEditor editor) {
@@ -86,10 +79,13 @@ public class ScreenProperty implements Initializable {
     webEngine.loadContent(editor.getHtmlText(), "text/html");
   }
 
+  /**
+   * Initialize autocompletion when input text.
+   */
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    // String[] words = { "thinh", "thinhrom", "hanzo", "nguyen" };
-    TextFields.bindAutoCompletion(inputText, WordSuggestion.suggestedWords);
+    provider = SuggestionProvider.create(WordSuggestion.suggestedWords);
+    new AutoCompletionTextFieldBinding<>(inputText, provider);
   }
 
   public void speakout(ActionEvent event) {
@@ -107,7 +103,6 @@ public class ScreenProperty implements Initializable {
       vnTrans = TranslateApi.translate(inputString);
       setHtml(vnTrans);
       htmlToWebview(htmlEditor);
-      // label.setText(VNtrans);
     } catch (UnirestException e) {
       System.out.println("Out of network");
     }
@@ -130,18 +125,10 @@ public class ScreenProperty implements Initializable {
 
     try {
 
-      // ResourceBundle resource = ResourceBundle.getBundle("Language/lang_pt");
-      Parent root1Parent =
-          // FXMLLoader.load(getClass().getResource("./resources/fxml/Controller.fxml"),
-          // resource);
-          FXMLLoader.load(getClass().getResource("../resources/fxml/EditDatabase.fxml"));
-      // loader.setController("ScreenProperty");
+      Parent root1Parent = FXMLLoader.load(getClass().getResource("../resources/fxml/EditDatabase.fxml"));
       Stage newStage = new Stage();
       Scene scene1 = new Scene(root1Parent);
       scene1.getStylesheets().add(getClass().getResource("../resources/fxml/EditDatabase.css").toExternalForm());
-      /*
-       * StackPane layout =new StackPane(); Scene scene =new Scene(layout,300,250);
-       */
       newStage.setTitle("Edit Word Definition.");
       newStage.setResizable(false);
       newStage.setScene(scene1);
@@ -158,7 +145,7 @@ public class ScreenProperty implements Initializable {
 
     Alert alert6 = new Alert(AlertType.CONFIRMATION);
 
-    alert6.setHeaderText("Do you really want to export this dictionary file?");
+    alert6.setHeaderText("Do you really want to export this dictionary?");
 
     Optional<ButtonType> result = alert6.showAndWait();
 
