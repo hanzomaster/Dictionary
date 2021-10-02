@@ -15,7 +15,7 @@ import javafx.stage.WindowEvent;
 
 public class Main extends Application {
   /**
-   * TODO: Click Run to run the application.
+   * Click Run to run the application.
    */
   public static void main(String[] args) {
     try {

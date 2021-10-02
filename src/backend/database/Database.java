@@ -119,9 +119,8 @@ public class Database {
     /*
      * NOTE: For your computer safety, please don't iterate through all the
      * database. The database have 200000 rows and it might crash the app ¯\_(ツ)_/¯
-     * TODO: Iterate through all database
      */
-    for (int index = 0; index < 100 && rs.next(); index++) {
+    while (rs.next()) {
       sb.append(rs.getString("id"));
       sb.append("\t");
       sb.append(rs.getString("word"));

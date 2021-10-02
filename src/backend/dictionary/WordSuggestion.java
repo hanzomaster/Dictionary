@@ -20,8 +20,7 @@ public class WordSuggestion {
 
     ResultSet rs = database.selectAllWord();
 
-    // TODO: Iterate through all database
-    for (int i = 0; i < 1000 && rs.next(); i++) {
+    while (rs.next()) {
       suggestedWords.add(rs.getString("word"));
     }
   }
