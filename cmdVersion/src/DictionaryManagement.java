@@ -61,7 +61,7 @@ public class DictionaryManagement {
     scanner.close();
   }
 
-  public void insertNewWord(String word, String definitio) {
+  public void insertNewWord(String word, String definition) {
 
   }
 
