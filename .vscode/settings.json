@@ -13,5 +13,6 @@
       "freetts-1.2/lib/cmu_time_awb.jar"
     ]
   },
-  "java.checkstyle.configuration": "/google_checks.xml"
+  "java.checkstyle.configuration": "${workspaceFolder}\\.vscode\\eclipse-java-google-style.xml",
+  "java.format.settings.url": ".vscode/eclipse-java-google-style.xml"
 }

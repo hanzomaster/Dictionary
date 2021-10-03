@@ -1,8 +1,6 @@
 
 import backend.dictionary.WordSuggestion;
-
 import java.sql.SQLException;
-
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -35,9 +33,11 @@ public class Main extends Application {
     Image icon = new Image("./resources/icon/photodemo.png");
     primaryStage.getIcons().add(icon);
     try {
-      Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("resources/fxml/Controller.fxml"));
+      Parent root = FXMLLoader
+          .load(getClass().getClassLoader().getResource("resources/fxml/Controller.fxml"));
       Scene scene = new Scene(root);
-      scene.getStylesheets().add(getClass().getResource("resources/fxml/Application.css").toExternalForm());
+      scene.getStylesheets()
+          .add(getClass().getResource("resources/fxml/Application.css").toExternalForm());
       primaryStage.setScene(scene);
       primaryStage.show();
       primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {

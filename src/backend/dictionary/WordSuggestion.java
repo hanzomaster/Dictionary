@@ -1,7 +1,6 @@
 package backend.dictionary;
 
 import backend.database.Database;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashSet;

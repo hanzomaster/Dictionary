@@ -2,9 +2,7 @@ package frontend;
 
 import backend.database.Database;
 import backend.dictionary.WordSuggestion;
-
 import java.sql.SQLException;
-
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
