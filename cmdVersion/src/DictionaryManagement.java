@@ -2,11 +2,56 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Dictionary;
 import java.util.Scanner;
+import org.graalvm.compiler.word.Word;
 
 public class DictionaryManagement {
 
-  public void insertFromCommandLine() {
+
+  /**
+   * Insert data from file to trie.
+   */
+  public void insertFromFile() {
+    // url file dictionaries.txt
+    String url = ".\\cmdVersion\\resources\\data1.txt";
+
+    // Read data from File with BufferedReader.
+    FileInputStream fileInputStream = null;
+    BufferedReader bufferedReader = null;
+    try {
+      fileInputStream = new FileInputStream(url);
+      bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+      String line = bufferedReader.readLine();
+      while (line != null) {
+        // Xử lí xâu từ file text truyền vào mảng Word.
+        for (int i = 1; i < line.length(); i++) {
+          if (line.charAt(i) == '\t') {
+            String wordTarget = line.substring(0, i);
+            String wordExplain = line.substring(i + 1);
+            Dictionary.addWord(new Word(wordTarget, wordExplain));
+            break;
+          }
+        }
+        line = bufferedReader.readLine();
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    } finally {
+      // Đóng file.
+      try {
+        bufferedReader.close();
+        fileInputStream.close();
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
+  }
+
+  /**
+   * isert from commandline function.
+   */
+  public void addWordFromCommandLine() {
     Scanner scan = new Scanner(System.in);
     System.out.print("Insert number of new words you would like to add: ");
     int numNewWords = scan.nextInt();
@@ -19,10 +64,10 @@ public class DictionaryManagement {
         System.out.print("Plese enter a word: ");
         wordTarget = scan.nextLine();
       }
-      System.out.print("Insert part of speech in parentheses and meaning of word in Vietnamese: ");
+      System.out.print("Insert kind of word and meaning of word in Vietnamese: ");
       String wordExplain = scan.nextLine();
       while (wordExplain.equals("")) {
-        System.out.print("Plese enter the difinition for the word above: ");
+        System.out.print("Plese enter the definition for the word above: ");
         wordExplain = scan.nextLine();
       }
       Dictionary.addWord(new Word(wordTarget, wordExplain));
@@ -30,21 +75,6 @@ public class DictionaryManagement {
     scan.close();
   }
 
-  /**
-   * Insert data from file to trie.
-   */
-  public void insertFromFile() {
-    String dataUrl = "../resources/data.txt";
-    try (FileInputStream fileInputStream = new FileInputStream(dataUrl)) {
-      BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
-      while (bufferedReader.readLine() != null) {
-
-      }
-    } catch (IOException e) {
-      System.err.println("Can't find the find in the given URL");
-      e.printStackTrace();
-    }
-  }
 
   /**
    * Look up input word in dictionary.
@@ -61,9 +91,7 @@ public class DictionaryManagement {
     scanner.close();
   }
 
-  public void insertNewWord(String word, String definition) {
 
-  }
 
   /**
    * Delete input word.
