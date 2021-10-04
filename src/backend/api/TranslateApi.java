@@ -35,7 +35,7 @@ public class TranslateApi {
    * @return Translated text as string
    * @throws UnirestException Can't connect to API
    */
-  static String getTranslatedText(final String text) throws UnirestException {
+  private static String getTranslatedText(final String text) throws UnirestException {
     JSONObject responseBody = translateApi(text).getBody().getObject();
     return responseBody.getJSONObject("data").getJSONArray("translations").getJSONObject(0)
         .getString("translatedText");

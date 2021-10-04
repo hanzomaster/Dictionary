@@ -1,17 +1,17 @@
 package frontend;
 
-import backend.api.TranslateApi;
+import backend.api.GoogleApi;
 import backend.database.Database;
 import backend.dictionary.TextToSpeech;
 import backend.dictionary.WordSuggestion;
-import com.mashape.unirest.http.exceptions.UnirestException;
+import impl.org.controlsfx.autocompletion.AutoCompletionTextFieldBinding;
+import impl.org.controlsfx.autocompletion.SuggestionProvider;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import impl.org.controlsfx.autocompletion.AutoCompletionTextFieldBinding;
-import impl.org.controlsfx.autocompletion.SuggestionProvider;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -96,10 +96,10 @@ public class ScreenProperty implements Initializable {
     inputString = inputText.getText();
 
     try {
-      String vnTrans = TranslateApi.translate(inputString);
+      String vnTrans = GoogleApi.translateEnToVi(inputString);
       setHtml(vnTrans);
       htmlToWebview(htmlEditor);
-    } catch (UnirestException e) {
+    } catch (IOException e) {
       System.out.println("Out of network");
     }
 
@@ -164,7 +164,7 @@ public class ScreenProperty implements Initializable {
     }
   }
 
-  public void helpButtonClicked(ActionEvent event) {
+  public void helpButtonClicked() {
     try {
 
       Stage newStage = new Stage();
