@@ -5,13 +5,13 @@ import backend.database.Database;
 import backend.dictionary.TextToSpeech;
 import backend.dictionary.WordSuggestion;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import impl.org.controlsfx.autocompletion.AutoCompletionTextFieldBinding;
-import impl.org.controlsfx.autocompletion.SuggestionProvider;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import impl.org.controlsfx.autocompletion.AutoCompletionTextFieldBinding;
+import impl.org.controlsfx.autocompletion.SuggestionProvider;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,6 +21,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.web.HTMLEditor;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
@@ -124,10 +125,12 @@ public class ScreenProperty implements Initializable {
       Parent root1Parent =
           FXMLLoader.load(getClass().getResource("../resources/fxml/EditDatabase.fxml"));
       Stage newStage = new Stage();
+      Image icon = new Image("./resources/icon/editicon.png");
+      newStage.getIcons().add(icon);
       Scene scene1 = new Scene(root1Parent);
       scene1.getStylesheets()
           .add(getClass().getResource("../resources/fxml/EditDatabase.css").toExternalForm());
-      newStage.setTitle("Edit Word Definition.");
+      newStage.setTitle("Database Manipulation.");
       newStage.setResizable(false);
       newStage.setScene(scene1);
       newStage.show();
