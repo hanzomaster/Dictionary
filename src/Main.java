@@ -3,13 +3,11 @@ import backend.dictionary.WordSuggestion;
 import java.sql.SQLException;
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 public class Main extends Application {
   /**
@@ -40,12 +38,9 @@ public class Main extends Application {
           .add(getClass().getResource("resources/fxml/Application.css").toExternalForm());
       primaryStage.setScene(scene);
       primaryStage.show();
-      primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-        @Override
-        public void handle(WindowEvent arg0) {
-          Platform.exit();
-          System.exit(0);
-        }
+      primaryStage.setOnCloseRequest(arg0 -> {
+        Platform.exit();
+        System.exit(0);
       });
     } catch (Exception e) {
       e.printStackTrace();

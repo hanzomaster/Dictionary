@@ -10,10 +10,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Database {
-  private final String hostName = "localhost";
-  private final String dbName = "edict";
-  private final String userName = "root";
-  private final String password = "nguyen11092002"; // Your MySQL password go here
+  private static final String HOST_NAME = "localhost";
+  private static final String DB_NAME = "edict";
+  private static final String USER_NAME = "root";
+  private static final String PASSWORD = "Hide29f90892@"; // Your MySQL password go here
 
   private Connection connection = null;
 
@@ -25,10 +25,10 @@ public class Database {
    * @throws SQLException Can't access to database
    */
   public Database() throws SQLException {
-    final String connectionUrl = "jdbc:mysql://" + hostName + ":3306/" + dbName
+    final String connectionUrl = "jdbc:mysql://" + HOST_NAME + ":3306/" + DB_NAME
         + "?autoReconnect=true&verifyServerCertificate=false&useSSL=true";
 
-    connection = DriverManager.getConnection(connectionUrl, userName, password);
+    connection = DriverManager.getConnection(connectionUrl, USER_NAME, PASSWORD);
   }
 
   /**
@@ -46,11 +46,10 @@ public class Database {
 
     ResultSet rs = ps.executeQuery();
 
-    if (rs.next() == false) {
+    if (!rs.next()) {
       return "";
     } else {
-      String detail = rs.getString("detail");
-      return detail;
+      return rs.getString("detail");
     }
   }
 
@@ -138,7 +137,6 @@ public class Database {
   public ResultSet selectAllWord() throws SQLException {
     final String selectAllData = "select * from dictionary";
     ps = connection.prepareStatement(selectAllData);
-    ResultSet rs = ps.executeQuery();
-    return rs;
+    return ps.executeQuery();
   }
 }

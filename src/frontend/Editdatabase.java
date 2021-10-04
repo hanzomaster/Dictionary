@@ -3,7 +3,6 @@ package frontend;
 import backend.database.Database;
 import backend.dictionary.WordSuggestion;
 import java.sql.SQLException;
-import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.web.HTMLEditor;
@@ -15,10 +14,13 @@ public class Editdatabase {
   private String inputWord = "";
   private String inputDefinition = "";
 
+  private static final String ERROR_STRING = "ERROR";
+  private static final String SUCCESSFUL_STRING = "SUCCESSFULLY";
+
   /**
    * Add new word and definition to database.
    */
-  public void addButtonClicked(ActionEvent event) {
+  public void addButtonClicked() {
 
     inputWord = word.getText();
 
@@ -29,29 +31,29 @@ public class Editdatabase {
       inputDefinition = "";
     }
 
-    if (inputWord == "" || inputDefinition == "") {
+    if (inputWord.equals("") || inputDefinition.equals("")) {
       Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
 
       alert1.setContentText("Error. Please check your input.");
-      alert1.setTitle("ERROR");
+      alert1.setTitle(ERROR_STRING);
 
       alert1.show();
     } else {
       try {
         final Database wordAdd = new Database();
 
-        if (wordAdd.searchWord(inputWord) != "") {
+        if (!wordAdd.searchWord(inputWord).equals("")) {
           Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
 
           alert2.setContentText("Error. Your word has already been in this dictionary.");
-          alert2.setTitle("ERROR");
+          alert2.setTitle(ERROR_STRING);
 
           alert2.show();
         } else {
           // https://stackoverflow.com/questions/45778462/update-autocomplete-javafx
-          WordSuggestion.suggestedWords.add(inputWord);
+          WordSuggestion.getSuggestedWords().add(inputWord);
           ScreenProperty.provider.clearSuggestions();
-          ScreenProperty.provider.addPossibleSuggestions(WordSuggestion.suggestedWords);
+          ScreenProperty.provider.addPossibleSuggestions(WordSuggestion.getSuggestedWords());
 
           wordAdd.insertNewWord(inputWord, inputDefinition);
 
@@ -59,7 +61,7 @@ public class Editdatabase {
 
           alert.setContentText("Word add successfully.");
 
-          alert.setTitle("SUCCESSFULLY");
+          alert.setTitle(SUCCESSFUL_STRING);
 
           alert.show();
         }
@@ -72,12 +74,12 @@ public class Editdatabase {
   /**
    * Delete input word from database.
    */
-  public void deleteButtonClicked(ActionEvent event) {
+  public void deleteButtonClicked() {
     inputWord = word.getText();
     try {
-      WordSuggestion.suggestedWords.remove(inputWord);
+      WordSuggestion.getSuggestedWords().remove(inputWord);
       ScreenProperty.provider.clearSuggestions();
-      ScreenProperty.provider.addPossibleSuggestions(WordSuggestion.suggestedWords);
+      ScreenProperty.provider.addPossibleSuggestions(WordSuggestion.getSuggestedWords());
 
       final Database wordDelete = new Database();
 
@@ -87,7 +89,7 @@ public class Editdatabase {
 
       alert3.setContentText("Word delete successfully.");
 
-      alert3.setTitle("SUCCESSFULLY");
+      alert3.setTitle(SUCCESSFUL_STRING);
 
       alert3.show();
     } catch (SQLException e) {
@@ -98,7 +100,7 @@ public class Editdatabase {
   /**
    * Modify word definiton in database.
    */
-  public void modifyButtonClicked(ActionEvent event) {
+  public void modifyButtonClicked() {
     inputWord = word.getText();
     inputDefinition = detailEditor.getHtmlText();
 
@@ -110,19 +112,19 @@ public class Editdatabase {
     try {
       final Database wordModify = new Database();
 
-      if (inputWord == "" || inputDefinition == "") {
+      if (inputWord.equals("") || inputDefinition.equals("")) {
         Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
 
         alert1.setContentText("Error. Please check your input.");
-        alert1.setTitle("ERROR");
+        alert1.setTitle(ERROR_STRING);
 
         alert1.show();
-      } else if (wordModify.searchWord(inputWord) == "") {
+      } else if (wordModify.searchWord(inputWord).equals("")) {
         Alert alert4 = new Alert(Alert.AlertType.INFORMATION);
 
         alert4.setContentText("Error. This word has not been existed.");
 
-        alert4.setTitle("ERROR");
+        alert4.setTitle(ERROR_STRING);
 
         alert4.show();
       } else {
@@ -133,7 +135,7 @@ public class Editdatabase {
 
         alert3.setContentText("Word definition change successfully.");
 
-        alert3.setTitle("SUCCESSFULLY");
+        alert3.setTitle(SUCCESSFUL_STRING);
 
         alert3.show();
         System.out.println(inputDefinition.length());

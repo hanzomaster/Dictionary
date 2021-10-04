@@ -7,7 +7,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class WordSuggestion {
-  public static Set<String> suggestedWords = new HashSet<>();
+  private static Set<String> suggestedWords = new HashSet<>();
+
+  public static Set<String> getSuggestedWords() {
+    return suggestedWords;
+  }
 
   /**
    * Parse all data to a HashSet for word suggestion.

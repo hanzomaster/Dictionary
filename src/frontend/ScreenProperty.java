@@ -5,13 +5,13 @@ import backend.database.Database;
 import backend.dictionary.TextToSpeech;
 import backend.dictionary.WordSuggestion;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import impl.org.controlsfx.autocompletion.AutoCompletionTextFieldBinding;
+import impl.org.controlsfx.autocompletion.SuggestionProvider;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import impl.org.controlsfx.autocompletion.AutoCompletionTextFieldBinding;
-import impl.org.controlsfx.autocompletion.SuggestionProvider;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -33,8 +33,6 @@ public class ScreenProperty implements Initializable {
   public WebView webView;
   public HTMLEditor htmlEditor;
 
-  private String meaning = "";
-  private String vnTrans = "";
   static SuggestionProvider<String> provider;
 
   /**
@@ -48,9 +46,9 @@ public class ScreenProperty implements Initializable {
 
     try {
       final Database definition = new Database();
-      meaning = definition.searchWord(inputString);
+      String meaning = definition.searchWord(inputString);
 
-      if (meaning == "" || inputString == "") {
+      if (meaning.equals("") || inputString.equals("")) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText("Word not found. Please use Google Translate.");
         alert.show();
@@ -81,11 +79,11 @@ public class ScreenProperty implements Initializable {
    */
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    provider = SuggestionProvider.create(WordSuggestion.suggestedWords);
+    provider = SuggestionProvider.create(WordSuggestion.getSuggestedWords());
     new AutoCompletionTextFieldBinding<>(inputText, provider);
   }
 
-  public void speakout(ActionEvent event) {
+  public void speakout() {
     TextToSpeech speech = new TextToSpeech();
     speech.playSound(inputString);
   }
@@ -93,11 +91,11 @@ public class ScreenProperty implements Initializable {
   /**
    * Translate text using Google API.
    */
-  public void googleApi(ActionEvent event) {
+  public void googleApi() {
     inputString = inputText.getText();
 
     try {
-      vnTrans = TranslateApi.translate(inputString);
+      String vnTrans = TranslateApi.translate(inputString);
       setHtml(vnTrans);
       htmlToWebview(htmlEditor);
     } catch (UnirestException e) {
@@ -109,7 +107,7 @@ public class ScreenProperty implements Initializable {
   /**
    * Clear user input and definition.
    */
-  public void xButtonClicked(ActionEvent event) {
+  public void xButtonClicked() {
     inputText.setText("");
     setHtml("");
     htmlToWebview(htmlEditor);
@@ -118,7 +116,7 @@ public class ScreenProperty implements Initializable {
   /**
    * Button to add/delete/modify database.
    */
-  public void editButton(ActionEvent event) {
+  public void editButton() {
 
     try {
 
@@ -142,7 +140,7 @@ public class ScreenProperty implements Initializable {
   /**
    * Export all database to CSV file.
    */
-  public void exportButton(ActionEvent event) throws FileNotFoundException {
+  public void exportButton() throws FileNotFoundException {
 
     Alert alert6 = new Alert(AlertType.CONFIRMATION);
 
@@ -150,7 +148,7 @@ public class ScreenProperty implements Initializable {
 
     Optional<ButtonType> result = alert6.showAndWait();
 
-    if (result.get() == ButtonType.OK && result.isPresent()) {
+    if (result.isPresent() && result.get() == ButtonType.OK) {
 
       try {
         final Database exDatabase = new Database();

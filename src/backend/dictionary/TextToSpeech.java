@@ -18,10 +18,6 @@ public class TextToSpeech {
 
     if (voice != null) {
       voice.allocate();
-      // System.out.println("Voice rate: " + voice.getRate());
-      // System.out.println("Voice pitch: " + voice.getPitch());
-      // System.out.println("Voice volumn: " + voice.getVolume());
-      // boolean status = voice.speak(text);
       voice.speak(text);
       voice.deallocate();
     } else {
