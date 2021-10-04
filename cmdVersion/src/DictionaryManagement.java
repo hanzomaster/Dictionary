@@ -131,6 +131,9 @@ public class DictionaryManagement {
     }
   }
 
+  /**
+   * Export dictionary to file.
+   */
   public static void exportToFile() {
     String url = ".\\cmdVersion\\resources\\exportfile.txt";
     /* Create new file. */
