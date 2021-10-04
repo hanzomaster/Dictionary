@@ -118,11 +118,11 @@ public class DictionaryManagement {
       bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
       String line = bufferedReader.readLine();
       while (line != null) {
-        // Xử lí xâu từ file text truyền vào mảng Word.
+        // Separte word and explain.
         for (int i = 1; i < line.length(); i++) {
           if (line.charAt(i) == '\t') {
             String wordTarget = line.substring(0, i);
-            String wordExplain = line.substring(i + 1);
+            String wordExplain = line.substring(i + 2, line.length());
             dictionary.addWord(new Word(wordTarget, wordExplain));
             break;
           }

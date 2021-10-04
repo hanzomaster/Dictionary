@@ -8,12 +8,12 @@ public class Dictionary {
     words = new ArrayList<>();
   }
 
-  /** Thêm từ mới vào từ điển. */
+  /** Adding new word. */
   public void addWord(Word word) {
     words.add(word);
   }
 
-  /** Xóa từ khỏi từ điển. */
+  /** Remove word from dictionary */
   public void removeWord(Word word) {
     words.remove(word);
   }

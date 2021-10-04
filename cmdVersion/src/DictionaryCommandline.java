@@ -29,9 +29,10 @@ public class DictionaryCommandline {
   }
 
   public List<Word> dictionarySeacher() {
-    System.out.println("Insert word: ");
+    System.out.print("Insert word: ");
     Scanner scanner = new Scanner(System.in);
     String wordTarget = scanner.nextLine();
+    scanner.close();
     return (List<Word>) DictionaryManagement.dictionary.searchRelatedWords(wordTarget);
   }
 
