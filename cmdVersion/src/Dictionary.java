@@ -1,33 +1,54 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public static class Dictionary {
-  private static final List<Word> words = new ArrayList<>();
+public class Dictionary {
+  private final List<Word> words;
 
-  public static void addWord(Word word) {
+  public Dictionary() {
+    words = new ArrayList<>();
+  }
+
+  /** Thêm từ mới vào từ điển. */
+  public void addWord(Word word) {
     words.add(word);
   }
 
-  public static void removeWord(Word word) {
+  /** Xóa từ khỏi từ điển. */
+  public void removeWord(Word word) {
     words.remove(word);
   }
 
   /**
-   * Search for word in dictionary.
-   * 
-   * @param wordTarget Word to be searched
-   * @return that word if exist and meaning
+   * Find word in the dictionary.
    */
-  public static Word searchWord(String wordTarget) {
+  public Word searchWord(String wordTarget) {
     for (Word word : words) {
       if (word.getWordTarget().equals(wordTarget)) {
         return word;
       }
     }
+
     return null;
   }
 
-  public static List<Word> getAllWords() {
+  /**
+   * Return all words start with wordTarget
+   */
+  public List<Word> searchRelatedWords(String wordTarget) {
+    List<Word> wordFounds = new ArrayList<>();
+
+    for (Word word : words) {
+      if (word.getWordTarget().startsWith(wordTarget)) {
+        wordFounds.add(word);
+      }
+    }
+
+    return wordFounds;
+  }
+
+
+  /** Lấy tất cả các từ có trong từ điển. */
+  public List<Word> getAllWords() {
     return words;
   }
 }
