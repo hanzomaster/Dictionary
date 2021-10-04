@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
-
 public class DictionaryManagement {
 
   /**
@@ -16,13 +15,8 @@ public class DictionaryManagement {
    */
   public static final Dictionary dictionary = new Dictionary();
 
-  /*
-   * public DictionaryManagement() { dictionary = new Dictionary(); }
-   */
-
-
   /**
-   * isert from commandline function.
+   * insert from commandline function.
    */
   public static void addWordFromCommandLine() {
     Scanner scan = new Scanner(System.in);
@@ -48,30 +42,25 @@ public class DictionaryManagement {
     scan.close();
   }
 
-
   /**
    * Look up input word in dictionary.
    */
   public static void dictionaryLookup() {
-    System.out.println("Type your word: ");
+    System.out.print("Type your word: ");
     Scanner scanner = new Scanner(System.in);
-    String word_target = scanner.nextLine();
-    if (dictionary.searchWord(word_target) != null) {
-      System.out.println(word_target + " \t" + dictionary.searchWord(word_target).getWordExplain());
+    String wordTarget = scanner.nextLine();
+    if (dictionary.searchWord(wordTarget) != null) {
+      System.out.println(wordTarget + " \t" + dictionary.searchWord(wordTarget).getWordExplain());
     } else {
-      System.out.println("Can't find " + word_target + " in dictionary");
+      System.out.println("Can't find " + wordTarget + " in dictionary");
     }
     scanner.close();
   }
 
-
-
   /**
    * Delete input word.
-   * 
-   * @param word
    */
-  public void deleteWord(String word) {
+  public static void deleteWord(String word) {
     System.out.println("Insert word wanted to delete: ");
     Scanner sc = new Scanner(System.in);
     String wordDeleteTarget = sc.nextLine();
@@ -85,7 +74,7 @@ public class DictionaryManagement {
     sc.close();
   }
 
-  public void modifyWordDefinition(String word) {
+  public static void modifyWordDefinition(String word) {
     System.out.println("Type your word: ");
     Scanner sc = new Scanner(System.in);
     String wordUpdateTarget = sc.nextLine();
@@ -143,7 +132,7 @@ public class DictionaryManagement {
   }
 
   public static void exportToFile() {
-    String url = ".\\cmdVersion\\resources\\output.txt";
+    String url = ".\\cmdVersion\\resources\\exportfile.txt";
     /* Create new file. */
     File file = null;
     boolean isCreate = false;
@@ -183,4 +172,3 @@ public class DictionaryManagement {
     }
   }
 }
-

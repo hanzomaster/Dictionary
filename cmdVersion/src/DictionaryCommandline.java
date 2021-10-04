@@ -2,38 +2,46 @@ import java.util.List;
 import java.util.Scanner;
 
 public class DictionaryCommandline {
+
   /**
    * Show all word in the dictionary
    */
-  public void showAllWords() {
+  public static void showAllWords() {
     int i = 1;
     System.out.println("No\t|English\t|Vietnamese");
     for (Word word : DictionaryManagement.dictionary.getAllWords()) {
-      System.out.println(i + "\t" + word.getWordTarget() + word.getWordExplain());
+      System.out.println(i + "\t|" + word.getWordTarget() + "\t|" + word.getWordExplain());
+      i++;
     }
   }
 
   /**
    * Add word from commandline and show all word added.
    */
-  public void dictonaryBasic() {
+  public static void dictonaryBasic() {
     DictionaryManagement.addWordFromCommandLine();
     showAllWords();
 
   }
 
-  public void dictionaryAdvanced() {
+  /**
+   * Upper version.
+   */
+  public static void dictionaryAdvanced() {
     DictionaryManagement.insertFromFile();
     showAllWords();
     DictionaryManagement.dictionaryLookup();
   }
 
-  public List<Word> dictionarySeacher() {
+  /**
+   * search related word.
+   */
+  public static List<Word> dictionarySeacher() {
     System.out.print("Insert word: ");
-    Scanner scanner = new Scanner(System.in);
-    String wordTarget = scanner.nextLine();
-    scanner.close();
-    return (List<Word>) DictionaryManagement.dictionary.searchRelatedWords(wordTarget);
+    Scanner newscanner = new Scanner(System.in);
+    String wordTarget = newscanner.nextLine();
+    newscanner.close();
+    List<Word> newList = DictionaryManagement.dictionary.searchRelatedWords(wordTarget);
+    return newList;
   }
-
 }
