@@ -20,7 +20,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.web.HTMLEditor;
@@ -165,23 +164,17 @@ public class ScreenProperty implements Initializable {
   }
 
   public void helpButtonClicked(ActionEvent event) {
-    try {
 
-      Stage newStage = new Stage();
-      newStage.setTitle("Helps");
-      Image icon = new Image("./resources/icon/helpicon.png");
-      newStage.getIcons().add(icon);
-      TextArea newArea = new TextArea();
-      newArea.setText(
-          "-Text your word in the search field and click Search to find word.\n\n-Click speak button to hear the word pronunciation.\n\n-Click Google translate button to use google translate if the word is not found or you want to translate a paragraph.\n\n-Click Edit Word button to add, delete or modify definition of the word.\n\n-Click Export in the top right of the screen to export file to .csv file.");
-      newArea.setDisable(true);
-      Scene scene1 = new Scene(newArea, 700, 200);
-      newStage.setResizable(false);
-      newStage.setScene(scene1);
-      newStage.show();
-    } catch (Exception e) {
-      System.out.println(e);
-    }
+    Alert alert7 = new Alert(AlertType.INFORMATION);
+    alert7.setWidth(450);
+    alert7.setHeight(500);
+
+    alert7.setHeaderText("HELPS!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    alert7.setTitle("Helps.");
+    alert7.setContentText(
+        "-Text your word in the search field and click Search to find word.\n\n-Click speak button to hear the word pronunciation.\n\n-Click Google translate button to use google translate if the word is not found or you want to translate a paragraph.\n\n-Click Edit Word button to add, delete or modify definition of the word.\n\n-Click Export in the top right of the screen to export file to .csv file.\n");
+    alert7.show();
+
   }
 
 }
