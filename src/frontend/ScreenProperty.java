@@ -1,17 +1,15 @@
 package frontend;
 
-import backend.api.GoogleApi;
 import backend.database.Database;
 import backend.dictionary.TextToSpeech;
 import backend.dictionary.WordSuggestion;
-import impl.org.controlsfx.autocompletion.AutoCompletionTextFieldBinding;
-import impl.org.controlsfx.autocompletion.SuggestionProvider;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import impl.org.controlsfx.autocompletion.AutoCompletionTextFieldBinding;
+import impl.org.controlsfx.autocompletion.SuggestionProvider;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,7 +18,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.web.HTMLEditor;
@@ -93,15 +90,30 @@ public class ScreenProperty implements Initializable {
    * Translate text using Google API.
    */
   public void googleApi() {
-    inputString = inputText.getText();
 
     try {
-      String vnTrans = GoogleApi.translateEnToVi(inputString);
-      setHtml(vnTrans);
-      htmlToWebview(htmlEditor);
-    } catch (IOException e) {
-      System.out.println("Out of network");
+
+      Parent root1Parent =
+          FXMLLoader.load(getClass().getResource("../resources/fxml/GoogleTrans.fxml"));
+      Stage newStage = new Stage();
+      Image icon = new Image("./resources/icon/googleicon.png");
+      newStage.getIcons().add(icon);
+      Scene scene1 = new Scene(root1Parent);
+      scene1.getStylesheets()
+          .add(getClass().getResource("../resources/fxml/GoogleTrans.css").toExternalForm());
+      newStage.setTitle("Google Translate");
+      newStage.setResizable(false);
+      newStage.setScene(scene1);
+      newStage.show();
+    } catch (Exception e) {
+      System.out.println(e);
     }
+
+    /*
+     * inputString = inputText.getText(); try { String vnTrans =
+     * GoogleApi.translateEnToVi(inputString); setHtml(vnTrans); htmlToWebview(htmlEditor); } catch
+     * (IOException e) { System.out.println("Out of network"); }
+     */
 
   }
 
@@ -165,23 +177,17 @@ public class ScreenProperty implements Initializable {
   }
 
   public void helpButtonClicked() {
-    try {
 
-      Stage newStage = new Stage();
-      newStage.setTitle("Helps");
-      Image icon = new Image("./resources/icon/helpicon.png");
-      newStage.getIcons().add(icon);
-      TextArea newArea = new TextArea();
-      newArea.setText(
-          "-Text your word in the search field and click Search to find word.\n\n-Click speak button to hear the word pronunciation.\n\n-Click Google translate button to use google translate if the word is not found or you want to translate a paragraph.\n\n-Click Edit Word button to add, delete or modify definition of the word.\n\n-Click Export in the top right of the screen to export file to .csv file.");
-      newArea.setDisable(true);
-      Scene scene1 = new Scene(newArea, 700, 200);
-      newStage.setResizable(false);
-      newStage.setScene(scene1);
-      newStage.show();
-    } catch (Exception e) {
-      System.out.println(e);
-    }
+    Alert alert7 = new Alert(AlertType.INFORMATION);
+    alert7.setWidth(450);
+    alert7.setHeight(500);
+
+    alert7.setHeaderText("HELPS!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    alert7.setTitle("Helps.");
+    alert7.setContentText(
+        "-Text your word in the search field and click Search to find word.\n\n-Click speak button to hear the word pronunciation.\n\n-Click Google translate button to use google translate if the word is not found or you want to translate a paragraph.\n\n-Click Edit Word button to add, delete or modify definition of the word.\n\n-Click Export in the top right of the screen to export file to .csv file.\n");
+    alert7.show();
+
   }
 
 }
