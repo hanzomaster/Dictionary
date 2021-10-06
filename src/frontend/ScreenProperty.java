@@ -3,13 +3,13 @@ package frontend;
 import backend.database.Database;
 import backend.dictionary.TextToSpeech;
 import backend.dictionary.WordSuggestion;
-import impl.org.controlsfx.autocompletion.AutoCompletionTextFieldBinding;
-import impl.org.controlsfx.autocompletion.SuggestionProvider;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import impl.org.controlsfx.autocompletion.AutoCompletionTextFieldBinding;
+import impl.org.controlsfx.autocompletion.SuggestionProvider;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -82,6 +82,7 @@ public class ScreenProperty implements Initializable {
   }
 
   public void speakout() {
+    inputString = inputText.getText();
     TextToSpeech speech = new TextToSpeech();
     speech.playSound(inputString);
   }
