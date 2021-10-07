@@ -56,6 +56,7 @@ public class ScreenProperty implements Initializable {
       }
     }
 
+    // https://stackoverflow.com/questions/45778462/update-autocomplete-javafx
     provider.clearSuggestions();
     provider.addPossibleSuggestions(newSuggestedWord);
     newSuggestedWord.clear();
