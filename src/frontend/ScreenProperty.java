@@ -111,7 +111,7 @@ public class ScreenProperty implements Initializable {
   public void speakout() {
     inputString = inputText.getText();
     TextToSpeech speech = new TextToSpeech();
-    speech.speak(inputString, false, false);
+    speech.playSound(inputString);
   }
 
   /**
