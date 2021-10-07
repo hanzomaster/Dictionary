@@ -41,7 +41,6 @@ public class Main extends Application {
       primaryStage.setScene(scene);
       primaryStage.show();
       primaryStage.setOnCloseRequest(arg0 -> {
-        MyLogger.getLogger().info("End of program");
         Platform.exit();
         System.exit(0);
       });
