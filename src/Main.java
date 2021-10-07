@@ -14,7 +14,6 @@ public class Main extends Application {
    * Click Run to run the application.
    */
   public static void main(String[] args) {
-
     try {
       WordSuggestion.parseDataToArrayList();
     } catch (SQLException e1) {
