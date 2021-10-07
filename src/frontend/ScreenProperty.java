@@ -6,8 +6,10 @@ import backend.dictionary.WordSuggestion;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.HashSet;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.Set;
 import impl.org.controlsfx.autocompletion.AutoCompletionTextFieldBinding;
 import impl.org.controlsfx.autocompletion.SuggestionProvider;
 import javafx.event.ActionEvent;
@@ -20,6 +22,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.web.HTMLEditor;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
@@ -32,6 +35,9 @@ public class ScreenProperty implements Initializable {
   public HTMLEditor htmlEditor;
 
   static SuggestionProvider<String> provider;
+  public static Set<String> newSuggestedWord = new HashSet<>();
+  public static Set<String> newWord = new HashSet<>();
+
 
   /**
    * Submit text to translate.
@@ -72,13 +78,32 @@ public class ScreenProperty implements Initializable {
     webEngine.loadContent(editor.getHtmlText(), "text/html");
   }
 
+  public void getTextinField(KeyEvent event) {
+    String newText = inputText.getText();
+    for (String relateword : WordSuggestion.getSuggestedWords()) {
+      if (relateword.startsWith(newText) && newText != "") {
+        newSuggestedWord.add(relateword);
+        // System.out.println(relateword);
+      }
+    }
+    provider = SuggestionProvider.create(newSuggestedWord);
+    new AutoCompletionTextFieldBinding<>(inputText, provider);
+    newSuggestedWord.clear();
+  }
+
+  /*
+   * public static Set<String> getSuggestion(Set<String> newSet) { return newSet; }
+   */
+
   /**
    * Initialize autocompletion when input text.
    */
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    provider = SuggestionProvider.create(WordSuggestion.getSuggestedWords());
-    new AutoCompletionTextFieldBinding<>(inputText, provider);
+    // newWord = getSuggestion(newSuggestedWord);
+    // provider = SuggestionProvider.create(newWord);
+    // new AutoCompletionTextFieldBinding<>(inputText, provider);
+    // TextFields.bindAutoCompletion(inputText, newSuggestedWord);
   }
 
   public void speakout() {
