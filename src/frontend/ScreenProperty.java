@@ -3,13 +3,15 @@ package frontend;
 import backend.database.Database;
 import backend.dictionary.TextToSpeech;
 import backend.dictionary.WordSuggestion;
+import impl.org.controlsfx.autocompletion.AutoCompletionTextFieldBinding;
+import impl.org.controlsfx.autocompletion.SuggestionProvider;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.HashSet;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import impl.org.controlsfx.autocompletion.AutoCompletionTextFieldBinding;
-import impl.org.controlsfx.autocompletion.SuggestionProvider;
+import java.util.Set;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -31,7 +33,34 @@ public class ScreenProperty implements Initializable {
   public WebView webView;
   public HTMLEditor htmlEditor;
 
+  private Set<String> newSuggestedWord = new HashSet<>();
   static SuggestionProvider<String> provider;
+
+  /**
+   * Initialize autocompletion when input text.
+   */
+  @Override
+  public void initialize(URL location, ResourceBundle resources) {
+    provider = SuggestionProvider.create(WordSuggestion.getSuggestedWords());
+    new AutoCompletionTextFieldBinding<>(inputText, provider);
+  }
+
+  /**
+   * Update the word suggestion while user inputting text.
+   */
+  public void getTextinField() {
+    String newText = inputText.getText();
+    for (String relateword : WordSuggestion.getSuggestedWords()) {
+      if (relateword.startsWith(newText) && !newText.equals("")) {
+        newSuggestedWord.add(relateword);
+      }
+    }
+
+    // https://stackoverflow.com/questions/45778462/update-autocomplete-javafx
+    provider.clearSuggestions();
+    provider.addPossibleSuggestions(newSuggestedWord);
+    newSuggestedWord.clear();
+  }
 
   /**
    * Submit text to translate.
@@ -73,14 +102,8 @@ public class ScreenProperty implements Initializable {
   }
 
   /**
-   * Initialize autocompletion when input text.
+   * Sepak the text in inputText.
    */
-  @Override
-  public void initialize(URL location, ResourceBundle resources) {
-    provider = SuggestionProvider.create(WordSuggestion.getSuggestedWords());
-    new AutoCompletionTextFieldBinding<>(inputText, provider);
-  }
-
   public void speakout() {
     inputString = inputText.getText();
     TextToSpeech speech = new TextToSpeech();
@@ -91,9 +114,7 @@ public class ScreenProperty implements Initializable {
    * Translate text using Google API.
    */
   public void googleApi() {
-
     try {
-
       Parent root1Parent =
           FXMLLoader.load(getClass().getResource("../resources/fxml/GoogleTrans.fxml"));
       Stage newStage = new Stage();
@@ -109,13 +130,6 @@ public class ScreenProperty implements Initializable {
     } catch (Exception e) {
       System.out.println(e);
     }
-
-    /*
-     * inputString = inputText.getText(); try { String vnTrans =
-     * GoogleApi.translateEnToVi(inputString); setHtml(vnTrans); htmlToWebview(htmlEditor); } catch
-     * (IOException e) { System.out.println("Out of network"); }
-     */
-
   }
 
   /**
@@ -177,6 +191,9 @@ public class ScreenProperty implements Initializable {
     }
   }
 
+  /**
+   * Display helps.
+   */
   public void helpButtonClicked() {
 
     Alert alert7 = new Alert(AlertType.INFORMATION);

@@ -19,6 +19,7 @@ public class Main extends Application {
     } catch (SQLException e1) {
       e1.printStackTrace();
     }
+
     launch(args);
   }
 
