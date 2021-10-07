@@ -108,7 +108,7 @@ public class ScreenProperty implements Initializable {
   public void speakout() {
     inputString = inputText.getText();
     TextToSpeech speech = new TextToSpeech();
-    speech.speak(inputString, false, false);
+    speech.playSound(inputString);
   }
 
   /**
@@ -119,7 +119,7 @@ public class ScreenProperty implements Initializable {
       Parent root1Parent =
           FXMLLoader.load(getClass().getResource("../resources/fxml/GoogleTrans.fxml"));
       Stage newStage = new Stage();
-      Image icon = new Image("./resources/icon/googleicon.png");
+      Image icon = new Image("../resources/icon/googleicon.png");
       newStage.getIcons().add(icon);
       Scene scene1 = new Scene(root1Parent);
       scene1.getStylesheets()
@@ -152,7 +152,7 @@ public class ScreenProperty implements Initializable {
       Parent root1Parent =
           FXMLLoader.load(getClass().getResource("../resources/fxml/EditDatabase.fxml"));
       Stage newStage = new Stage();
-      Image icon = new Image("./resources/icon/editicon.png");
+      Image icon = new Image("../resources/icon/editicon.png");
       newStage.getIcons().add(icon);
       Scene scene1 = new Scene(root1Parent);
       scene1.getStylesheets()
