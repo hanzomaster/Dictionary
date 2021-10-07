@@ -18,17 +18,6 @@ public class TextToSpeech {
   private MaryInterface marytts;
 
   /**
-   * Constructor.
-   */
-  public TextToSpeech() {
-    try {
-      marytts = new LocalMaryInterface();
-    } catch (MaryConfigurationException ex) {
-      Logger.getLogger(getClass().getName()).log(Level.SEVERE, null, ex);
-    }
-  }
-
-  /**
    * Transform text to speech.
    * 
    * @param text The text that will be transformed to speech
@@ -42,9 +31,16 @@ public class TextToSpeech {
    *          this method
    */
   public void speak(String text, boolean daemon, boolean join) {
+    try {
+      marytts = new LocalMaryInterface();
+    } catch (MaryConfigurationException ex) {
+      Logger.getLogger(getClass().getName()).log(Level.SEVERE, null, ex);
+    }
 
     // Stop the previous player
-    stopSpeaking();
+    if (tts != null) {
+      tts.cancel();
+    }
 
     try (AudioInputStream audio = marytts.generateAudio(text)) {
 
@@ -64,16 +60,6 @@ public class TextToSpeech {
     } catch (InterruptedException ex) {
       Logger.getLogger(getClass().getName()).log(Level.WARNING, "Interrupted ", ex);
       tts.interrupt();
-    }
-  }
-
-  /**
-   * Stop the MaryTTS from Speaking.
-   */
-  public void stopSpeaking() {
-    // Stop the previous player
-    if (tts != null) {
-      tts.cancel();
     }
   }
 }
