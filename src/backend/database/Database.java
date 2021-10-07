@@ -13,7 +13,7 @@ public class Database {
   private static final String HOST_NAME = "localhost";
   private static final String DB_NAME = "edict";
   private static final String USER_NAME = "root";
-  private static final String PASSWORD = "nguyen11092002"; // Your MySQL password go here
+  private static final String PASSWORD = "Hide29f90892@"; // Your MySQL password go here
 
   private Connection connection = null;
 

@@ -1,17 +1,20 @@
 package frontend;
 
+import backend.MyLogger;
 import backend.database.Database;
 import backend.dictionary.TextToSpeech;
 import backend.dictionary.WordSuggestion;
 import impl.org.controlsfx.autocompletion.AutoCompletionTextFieldBinding;
 import impl.org.controlsfx.autocompletion.SuggestionProvider;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Set;
+import java.util.logging.Level;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -88,6 +91,7 @@ public class ScreenProperty implements Initializable {
       }
     } catch (SQLException e) {
       e.getMessage();
+      MyLogger.getLogger().log(Level.WARNING, null, e);
     }
 
   }
@@ -107,7 +111,7 @@ public class ScreenProperty implements Initializable {
   public void speakout() {
     inputString = inputText.getText();
     TextToSpeech speech = new TextToSpeech();
-    speech.playSound(inputString);
+    speech.speak(inputString, false, false);
   }
 
   /**
@@ -127,8 +131,8 @@ public class ScreenProperty implements Initializable {
       newStage.setResizable(false);
       newStage.setScene(scene1);
       newStage.show();
-    } catch (Exception e) {
-      System.out.println(e);
+    } catch (IOException e) {
+      MyLogger.getLogger().log(Level.WARNING, null, e);
     }
   }
 
@@ -160,8 +164,9 @@ public class ScreenProperty implements Initializable {
       newStage.setResizable(false);
       newStage.setScene(scene1);
       newStage.show();
-    } catch (Exception e) {
+    } catch (IOException e) {
       System.out.println(e);
+      MyLogger.getLogger().log(Level.WARNING, null, e);
     }
   }
 
@@ -187,6 +192,7 @@ public class ScreenProperty implements Initializable {
 
       } catch (SQLException e) {
         e.getMessage();
+        MyLogger.getLogger().log(Level.WARNING, null, e);
       }
     }
   }

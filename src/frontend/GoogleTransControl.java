@@ -1,6 +1,8 @@
 package frontend;
 
+import backend.MyLogger;
 import backend.api.GoogleApi;
+import java.util.logging.Level;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextArea;
@@ -22,6 +24,7 @@ public class GoogleTransControl {
       alert7.setHeaderText("Word not found");
       alert7.setTitle("ERROR");
       alert7.show();
+      MyLogger.getLogger().log(Level.WARNING, null, e);
     }
   }
 
@@ -38,6 +41,7 @@ public class GoogleTransControl {
       alert7.setHeaderText("Word not found");
       alert7.setTitle("ERROR");
       alert7.show();
+      MyLogger.getLogger().log(Level.WARNING, null, e);
     }
   }
 }

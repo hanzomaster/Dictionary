@@ -1,6 +1,8 @@
 
+import backend.MyLogger;
 import backend.dictionary.WordSuggestion;
 import java.sql.SQLException;
+import java.util.logging.Level;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -14,13 +16,17 @@ public class Main extends Application {
    * Click Run to run the application.
    */
   public static void main(String[] args) {
+    MyLogger.init();
     try {
       WordSuggestion.parseDataToArrayList();
     } catch (SQLException e1) {
       e1.printStackTrace();
+      MyLogger.getLogger().log(Level.WARNING, null, e1);
     }
 
     launch(args);
+
+    MyLogger.getLogger().info("End of program");
   }
 
   /**
@@ -45,6 +51,7 @@ public class Main extends Application {
       });
     } catch (Exception e) {
       e.printStackTrace();
+      MyLogger.getLogger().log(Level.WARNING, null, e);
     }
   }
 }
