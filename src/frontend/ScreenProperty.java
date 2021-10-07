@@ -1,6 +1,5 @@
 package frontend;
 
-import backend.MyLogger;
 import backend.database.Database;
 import backend.dictionary.TextToSpeech;
 import backend.dictionary.WordSuggestion;
@@ -14,7 +13,6 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Set;
-import java.util.logging.Level;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -91,7 +89,6 @@ public class ScreenProperty implements Initializable {
       }
     } catch (SQLException e) {
       e.getMessage();
-      MyLogger.getLogger().log(Level.WARNING, null, e);
     }
 
   }
@@ -132,7 +129,7 @@ public class ScreenProperty implements Initializable {
       newStage.setScene(scene1);
       newStage.show();
     } catch (IOException e) {
-      MyLogger.getLogger().log(Level.WARNING, null, e);
+      e.printStackTrace();
     }
   }
 
@@ -165,8 +162,7 @@ public class ScreenProperty implements Initializable {
       newStage.setScene(scene1);
       newStage.show();
     } catch (IOException e) {
-      System.out.println(e);
-      MyLogger.getLogger().log(Level.WARNING, null, e);
+      e.printStackTrace();
     }
   }
 
@@ -191,8 +187,7 @@ public class ScreenProperty implements Initializable {
         alert5.show();
 
       } catch (SQLException e) {
-        e.getMessage();
-        MyLogger.getLogger().log(Level.WARNING, null, e);
+        e.printStackTrace();
       }
     }
   }

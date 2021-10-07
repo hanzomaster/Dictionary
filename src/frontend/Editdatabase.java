@@ -1,10 +1,8 @@
 package frontend;
 
-import backend.MyLogger;
 import backend.database.Database;
 import backend.dictionary.WordSuggestion;
 import java.sql.SQLException;
-import java.util.logging.Level;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.web.HTMLEditor;
@@ -69,7 +67,6 @@ public class Editdatabase {
         }
       } catch (SQLException e) {
         e.printStackTrace();
-        MyLogger.getLogger().log(Level.WARNING, null, e);
       }
     }
   }
@@ -97,7 +94,6 @@ public class Editdatabase {
       alert3.show();
     } catch (SQLException e) {
       e.printStackTrace();
-      MyLogger.getLogger().log(Level.WARNING, null, e);
     }
   }
 
@@ -147,7 +143,6 @@ public class Editdatabase {
       }
     } catch (SQLException e) {
       e.printStackTrace();
-      MyLogger.getLogger().log(Level.WARNING, null, e);
     }
   }
 

@@ -1,8 +1,6 @@
 package backend.dictionary;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.sound.sampled.AudioInputStream;
 import marytts.LocalMaryInterface;
 import marytts.MaryInterface;
@@ -23,8 +21,8 @@ public class TextToSpeech {
   public TextToSpeech() {
     try {
       marytts = new LocalMaryInterface();
-    } catch (MaryConfigurationException ex) {
-      Logger.getLogger(getClass().getName()).log(Level.SEVERE, null, ex);
+    } catch (MaryConfigurationException e) {
+      e.printStackTrace();
     }
   }
 
@@ -57,12 +55,10 @@ public class TextToSpeech {
       if (join) {
         tts.join();
       }
-    } catch (SynthesisException ex) {
-      Logger.getLogger(getClass().getName()).log(Level.WARNING, "Error saying phrase.", ex);
-    } catch (IOException ex) {
-      Logger.getLogger(getClass().getName()).log(Level.WARNING, "IO Exception", ex);
-    } catch (InterruptedException ex) {
-      Logger.getLogger(getClass().getName()).log(Level.WARNING, "Interrupted ", ex);
+    } catch (SynthesisException | IOException e) {
+      e.printStackTrace();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
       tts.interrupt();
     }
   }
