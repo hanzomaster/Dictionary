@@ -1,6 +1,5 @@
 
 import backend.dictionary.WordSuggestion;
-import java.sql.SQLException;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -14,14 +13,9 @@ public class Main extends Application {
    * Click Run to run the application.
    */
   public static void main(String[] args) {
-    try {
-      WordSuggestion.parseDataToArrayList();
-    } catch (SQLException e1) {
-      e1.printStackTrace();
-    }
-
+    Thread myThread = new Thread(new WordSuggestion());
+    myThread.start();
     launch(args);
-
   }
 
   /**

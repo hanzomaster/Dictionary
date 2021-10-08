@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Set;
 
-public class WordSuggestion {
+public class WordSuggestion implements Runnable {
   private static Set<String> suggestedWords = new HashSet<>();
 
   public static Set<String> getSuggestedWords() {
@@ -25,6 +25,15 @@ public class WordSuggestion {
 
     while (rs.next()) {
       suggestedWords.add(rs.getString("word"));
+    }
+  }
+
+  @Override
+  public void run() {
+    try {
+      parseDataToArrayList();
+    } catch (SQLException e) {
+      e.printStackTrace();
     }
   }
 }
