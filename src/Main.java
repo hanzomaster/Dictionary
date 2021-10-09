@@ -24,7 +24,7 @@ public class Main extends Application {
   public void start(Stage primaryStage) {
     primaryStage.setTitle("Dictionary");
     primaryStage.setResizable(false);
-    Image icon = new Image("./resources/icon/photodemo.png");
+    Image icon = new Image("./resources/icon/newlogo.png");
     primaryStage.getIcons().add(icon);
     try {
       Parent root = FXMLLoader
