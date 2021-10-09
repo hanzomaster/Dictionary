@@ -1,8 +1,5 @@
 #button {
-  -fx-background-color: rgb(78, 238, 243);
-  -fx-padding: 10px 10px 10px 10px;
-  -fx-font-size: 20px;
-  -fx-background-radius: 20px;
+  -fx-background-color: #ffcc00;
 }
 
 #button:hover {
@@ -15,14 +12,11 @@
   -fx-border-radius: 20px;
   -fx-border-size: 3px;
 }
-#background {
-  -fx-background-color: rgba(134, 246, 250, 0.5);
-}
 #windowsearch {
   -fx-background-color: #fff;
 }
 #read {
-  -fx-background-color: rgba(15, 73, 233, 0.5);
+  -fx-background-color: #ffcc00;
   -fx-background-radius: 20px;
 }
 #read:hover {
@@ -30,7 +24,7 @@
 }
 
 #googlebutton {
-  -fx-background-color: rgba(15, 73, 233, 0.5);
+  -fx-background-color: #ffcc00;
   -fx-background-radius: 20px;
 }
 #googlebutton:hover {
@@ -38,7 +32,7 @@
 }
 
 #dicbutton {
-  -fx-background-color: rgba(15, 73, 233, 0.5);
+  -fx-background-color: #ffcc00;
   -fx-background-radius: 20px;
 }
 
@@ -46,7 +40,7 @@
   -fx-background-color: rgba(15, 233, 142, 0.5);
 }
 #helpbutton {
-  -fx-background-color: rgba(15, 73, 233, 0.5);
+  -fx-background-color: #ffcc00;
   -fx-background-radius: 20px;
 }
 
@@ -54,20 +48,20 @@
   -fx-background-color: rgba(15, 233, 142, 0.5);
 }
 #buttonX {
-  -fx-background-color: rgb(255, 4, 4);
+  -fx-background-color: #fff;
 }
 #buttonX:hover {
-  -fx-background-color: rgba(18, 157, 161, 0.5);
+  -fx-background-color: rgb(172, 170, 170);
 }
 #buttonX:pressed {
-  -fx-background-color: rgba(18, 157, 161, 0.5);
+  -fx-background-color: rgba(153, 160, 160, 0.5);
 
   -fx-border-color: rgb(49, 100, 79);
   -fx-border-radius: 0px;
   -fx-border-size: 3px;
 }
 #exportbutton {
-  -fx-background-color: rgb(24, 193, 245);
+  -fx-background-color: #ffcc00;
   -fx-padding: 10px 10px 10px 10px;
   -fx-font-size: 20px;
 }
