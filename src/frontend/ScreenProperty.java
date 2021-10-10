@@ -3,8 +3,6 @@ package frontend;
 import backend.database.Database;
 import backend.dictionary.TextToSpeech;
 import backend.dictionary.WordSuggestion;
-import impl.org.controlsfx.autocompletion.AutoCompletionTextFieldBinding;
-import impl.org.controlsfx.autocompletion.SuggestionProvider;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
@@ -13,6 +11,8 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Set;
+import impl.org.controlsfx.autocompletion.AutoCompletionTextFieldBinding;
+import impl.org.controlsfx.autocompletion.SuggestionProvider;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -23,6 +23,8 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.web.HTMLEditor;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
@@ -49,12 +51,39 @@ public class ScreenProperty implements Initializable {
   /**
    * Update the word suggestion while user inputting text.
    */
-  public void getTextinField() {
+  public void getTextinField(KeyEvent event) {
     String newText = inputText.getText();
+    if (newText == "") {
+      setHtml("");
+      htmlToWebview(htmlEditor);
+    }
     for (String relateword : WordSuggestion.getSuggestedWords()) {
       if (relateword.startsWith(newText) && !newText.equals("")) {
         newSuggestedWord.add(relateword);
       }
+
+    }
+    if (event.getCode() == KeyCode.ENTER) {
+      // System.out.println("Hello");
+      inputString = inputText.getText();
+
+      try {
+        final Database definition = new Database();
+        String meaning = definition.searchWord(inputString);
+        if (meaning.equals("") || inputString.equals("")) {
+          Alert alert = new Alert(Alert.AlertType.INFORMATION);
+          alert.setContentText("Word not found. Please use Google Translate.");
+          alert.show();
+          setHtml("");
+          htmlToWebview(htmlEditor);
+        } else {
+          setHtml(meaning);
+          htmlToWebview(htmlEditor);
+        }
+      } catch (SQLException e) {
+        e.getMessage();
+      }
+
     }
 
     // https://stackoverflow.com/questions/45778462/update-autocomplete-javafx
