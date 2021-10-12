@@ -111,7 +111,7 @@ public class DictionaryManagement {
         for (int i = 1; i < line.length(); i++) {
           if (line.charAt(i) == '\t') {
             String wordTarget = line.substring(0, i);
-            String wordExplain = line.substring(i + 2, line.length());
+            String wordExplain = line.substring(i + 1, line.length());
             dictionary.addWord(new Word(wordTarget, wordExplain));
             break;
           }
