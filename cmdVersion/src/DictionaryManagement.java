@@ -34,7 +34,7 @@ public class DictionaryManagement {
       System.out.print("Insert kind of word and meaning of word in Vietnamese: ");
       String wordExplain = scan.nextLine();
       while (wordExplain.equals("")) {
-        System.out.print("Plese enter the definition for the word above: ");
+        System.out.print("Please enter the definition for the word above: ");
         wordExplain = scan.nextLine();
       }
       dictionary.addWord(new Word(wordTarget, wordExplain));
@@ -100,11 +100,11 @@ public class DictionaryManagement {
     String url = ".\\cmdVersion\\resources\\data1.txt";
 
     // Read data from File with BufferedReader.
-    FileInputStream fileInputStream = null;
+    FileInputStream fileInput = null;
     BufferedReader bufferedReader = null;
     try {
-      fileInputStream = new FileInputStream(url);
-      bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+      fileInput = new FileInputStream(url);
+      bufferedReader = new BufferedReader(new InputStreamReader(fileInput));
       String line = bufferedReader.readLine();
       while (line != null) {
         // Separte word and explain.
@@ -124,7 +124,7 @@ public class DictionaryManagement {
       // Đóng file.
       try {
         bufferedReader.close();
-        fileInputStream.close();
+        fileInput.close();
       } catch (IOException e) {
         e.printStackTrace();
       }
