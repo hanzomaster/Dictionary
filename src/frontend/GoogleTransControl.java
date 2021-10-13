@@ -5,10 +5,13 @@ import java.io.IOException;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextArea;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 
 public class GoogleTransControl {
   public TextArea inputArea;
-  public TextArea translateArea;
+  public WebView viewer;
+
 
   /**
    * Translate from English to Vietnamese.
@@ -18,8 +21,9 @@ public class GoogleTransControl {
 
     String translateText;
     try {
+      WebEngine engine = viewer.getEngine();
       translateText = GoogleApi.translateEnToVi(inputString);
-      translateArea.setText(translateText);
+      engine.loadContent(translateText);
     } catch (IOException e) {
       Alert alert7 = new Alert(AlertType.INFORMATION);
       alert7.setHeaderText("Word not found");
@@ -36,8 +40,9 @@ public class GoogleTransControl {
   public void translateVtoEButtonClicked() {
     String inputString = inputArea.getText();
     try {
+      WebEngine engine = viewer.getEngine();
       String translateText = GoogleApi.translateViToEn(inputString);
-      translateArea.setText(translateText);
+      engine.loadContent(translateText);
     } catch (IOException e) {
       Alert alert7 = new Alert(AlertType.INFORMATION);
       alert7.setHeaderText("Word not found");
