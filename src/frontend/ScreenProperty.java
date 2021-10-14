@@ -1,6 +1,7 @@
 package frontend;
 
 import backend.database.Database;
+import backend.database.Historybase;
 import backend.dictionary.TextToSpeech;
 import backend.dictionary.WordSuggestion;
 import java.io.FileNotFoundException;
@@ -28,6 +29,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.web.HTMLEditor;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class ScreenProperty implements Initializable {
@@ -79,6 +81,7 @@ public class ScreenProperty implements Initializable {
         } else {
           setHtml(meaning);
           htmlToWebview(htmlEditor);
+          Historybase.insertWordtoHistory(inputString);
         }
       } catch (SQLException e) {
         e.getMessage();
@@ -114,6 +117,7 @@ public class ScreenProperty implements Initializable {
       } else {
         setHtml(meaning);
         htmlToWebview(htmlEditor);
+        Historybase.insertWordtoHistory(inputString);
 
       }
     } catch (SQLException e) {
@@ -189,6 +193,7 @@ public class ScreenProperty implements Initializable {
       newStage.setTitle("Database Manipulation.");
       newStage.setResizable(false);
       newStage.setScene(scene1);
+      newStage.initModality(Modality.APPLICATION_MODAL);
       newStage.show();
     } catch (IOException e) {
       e.printStackTrace();
@@ -236,6 +241,33 @@ public class ScreenProperty implements Initializable {
         "-Text your word in the search field and click Search to find word.\n\n-Click speak button to hear the word pronunciation.\n\n-Click Google translate button to use google translate if the word is not found or you want to translate a paragraph.\n\n-Click Edit Word button to add, delete or modify definition of the word.\n\n-Click Export in the top right of the screen to export file to .csv file.\n");
     alert7.show();
 
+  }
+
+  /**
+   * Display history.
+   */
+
+  public void historyButtonClicked() {
+
+    Historybase.getHistoryData();
+    try {
+
+      Parent root1Parent =
+          FXMLLoader.load(getClass().getResource("../resources/fxml/History.fxml"));
+      Stage newStage = new Stage();
+      Image icon = new Image("./resources/icon/historyicon.png");
+      newStage.getIcons().add(icon);
+      Scene scene1 = new Scene(root1Parent);
+      // scene1.getStylesheets()
+      // .add(getClass().getResource("../resources/fxml/EditDatabase.css").toExternalForm());
+      newStage.setTitle("History.");
+      newStage.setResizable(false);
+      newStage.setScene(scene1);
+      newStage.initModality(Modality.APPLICATION_MODAL);
+      newStage.show();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
 }

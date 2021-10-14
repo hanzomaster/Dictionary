@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="214.0" prefWidth="923.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.GoogleTransControl">
+<AnchorPane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="891.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.GoogleTransControl">
    <children>
       <TextArea fx:id="inputArea" layoutX="5.0" layoutY="58.0" prefHeight="138.0" prefWidth="374.0" />
       <Button id="engvibutton" layoutX="378.0" layoutY="82.0" mnemonicParsing="false" onAction="#translateEtoVButtonClicked" prefHeight="43.0" prefWidth="94.0">
@@ -21,14 +21,14 @@
             </ImageView>
          </graphic>
       </Button>
-      <Label layoutX="14.0" layoutY="10.0" text="TEXT:" textFill="#db2612">
+      <Label layoutX="14.0" layoutY="10.0" text="TEXT:" textFill="#ffcc00">
          <font>
             <Font name="System Bold Italic" size="29.0" />
          </font>
       </Label>
-      <Label layoutX="501.0" layoutY="10.0" text="TRANSLATE:" textFill="#d93d3d" wrapText="true">
+      <Label layoutX="500.0" layoutY="10.0" text="TRANSLATE:" textFill="#ffcc00" wrapText="true">
          <font>
-            <Font name="System Bold Italic" size="29.0" />
+            <Font name="System Bold Italic" size="26.0" />
          </font>
       </Label>
       <Button id="viengbutton" layoutX="378.0" layoutY="127.0" mnemonicParsing="false" onAction="#translateVtoEButtonClicked" prefHeight="43.0" prefWidth="122.0">
@@ -40,6 +40,6 @@
             </ImageView>
          </graphic>
       </Button>
-      <WebView fx:id="viewer" layoutX="513.0" layoutY="54.0" prefHeight="138.0" prefWidth="401.0" />
+      <WebView fx:id="viewer" layoutX="500.0" layoutY="56.0" prefHeight="138.0" prefWidth="384.0" />
    </children>
 </AnchorPane>

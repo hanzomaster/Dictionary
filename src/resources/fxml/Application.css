@@ -76,3 +76,10 @@
   -fx-border-color: rgb(49, 100, 79);
   -fx-border-size: 3px;
 }
+#historyButton {
+  -fx-background-radius: 40; 
+  -fx-background-color: #ffff00;
+}
+#historyButton:hover {
+  -fx-background-color: rgba(15, 233, 142, 0.5);
+}
