@@ -2,12 +2,20 @@ package frontend;
 
 import backend.database.Database;
 import backend.dictionary.WordSuggestion;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.HashSet;
+import java.util.ResourceBundle;
+import java.util.Set;
+import impl.org.controlsfx.autocompletion.AutoCompletionTextFieldBinding;
+import impl.org.controlsfx.autocompletion.SuggestionProvider;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.web.HTMLEditor;
 
-public class Editdatabase {
+public class Editdatabase implements Initializable {
   public TextField word;
   public HTMLEditor detailEditor;
 
@@ -16,6 +24,34 @@ public class Editdatabase {
 
   private static final String ERROR_STRING = "ERROR";
   private static final String SUCCESSFUL_STRING = "SUCCESSFULLY";
+
+  private Set<String> newSuggestedWord = new HashSet<>();
+  static SuggestionProvider<String> provider;
+
+  /**
+   * Initialize autocompletion when input text.
+   */
+  @Override
+  public void initialize(URL location, ResourceBundle resources) {
+    provider = SuggestionProvider.create(WordSuggestion.getSuggestedWords());
+    new AutoCompletionTextFieldBinding<>(word, provider);
+  }
+
+  public void getTextinEditField(KeyEvent event) {
+    String newText = word.getText();
+
+    for (String relateword : WordSuggestion.getSuggestedWords()) {
+      if (relateword.startsWith(newText) && !newText.equals("")) {
+        newSuggestedWord.add(relateword);
+      }
+
+    }
+
+    // https://stackoverflow.com/questions/45778462/update-autocomplete-javafx
+    provider.clearSuggestions();
+    provider.addPossibleSuggestions(newSuggestedWord);
+    newSuggestedWord.clear();
+  }
 
   /**
    * Add new word and definition to database.

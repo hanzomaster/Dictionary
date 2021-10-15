@@ -26,7 +26,11 @@ public class Historybase {
       bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
       String line = bufferedReader.readLine();
       while (line != null) {
-        // Separte word and explain.
+        for (int i = 0; i <= history.size() - 1; i++) {
+          if (history.get(i).equals(line)) {
+            history.remove(i);
+          }
+        }
         history.add(line);
         line = bufferedReader.readLine();
       }

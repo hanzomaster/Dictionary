@@ -57,6 +57,6 @@
          </image>
       </ImageView>
       <HTMLEditor fx:id="detailEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="4.0" layoutY="91.0" prefHeight="242.0" prefWidth="564.0" />
-      <TextField fx:id="word" layoutX="86.0" layoutY="14.0" prefHeight="26.0" prefWidth="472.0" promptText="Type your word here" style="-fx-background-radius: 20;" />
+      <TextField fx:id="word" layoutX="86.0" layoutY="14.0" onKeyReleased="#getTextinEditField" prefHeight="26.0" prefWidth="472.0" promptText="Type your word here" style="-fx-background-radius: 20;" />
    </children>
 </AnchorPane>

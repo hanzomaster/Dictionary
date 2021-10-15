@@ -238,7 +238,7 @@ public class ScreenProperty implements Initializable {
     alert7.setHeaderText("HELPS!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     alert7.setTitle("Helps.");
     alert7.setContentText(
-        "-Text your word in the search field and click Search to find word.\n\n-Click speak button to hear the word pronunciation.\n\n-Click Google translate button to use google translate if the word is not found or you want to translate a paragraph.\n\n-Click Edit Word button to add, delete or modify definition of the word.\n\n-Click Export in the top right of the screen to export file to .csv file.\n");
+        "-Text your word in the search field and click Search to find word.\n\n-Click speak button to hear the word pronunciation.\n\n-Click Google translate button to use google translate if the word is not found or you want to translate a paragraph.\n\n-Click Edit Word button to add, delete or modify definition of the word.\n\n-Click Export in the top right of the screen to export file to .csv file.\n\n-Click history button on the bottom right of the screen to get recently searched words.");
     alert7.show();
 
   }
