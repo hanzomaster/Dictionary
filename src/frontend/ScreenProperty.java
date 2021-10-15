@@ -4,6 +4,8 @@ import backend.database.Database;
 import backend.database.Historybase;
 import backend.dictionary.TextToSpeech;
 import backend.dictionary.WordSuggestion;
+import impl.org.controlsfx.autocompletion.AutoCompletionTextFieldBinding;
+import impl.org.controlsfx.autocompletion.SuggestionProvider;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
@@ -12,8 +14,6 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Set;
-import impl.org.controlsfx.autocompletion.AutoCompletionTextFieldBinding;
-import impl.org.controlsfx.autocompletion.SuggestionProvider;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -55,7 +55,7 @@ public class ScreenProperty implements Initializable {
    */
   public void getTextinField(KeyEvent event) {
     String newText = inputText.getText();
-    if (newText == "") {
+    if (newText.equals("")) {
       setHtml("");
       htmlToWebview(htmlEditor);
     }
@@ -66,7 +66,6 @@ public class ScreenProperty implements Initializable {
 
     }
     if (event.getCode() == KeyCode.ENTER) {
-      // System.out.println("Hello");
       inputString = inputText.getText();
 
       try {
@@ -86,9 +85,7 @@ public class ScreenProperty implements Initializable {
       } catch (SQLException e) {
         e.getMessage();
       }
-
     }
-
     // https://stackoverflow.com/questions/45778462/update-autocomplete-javafx
     provider.clearSuggestions();
     provider.addPossibleSuggestions(newSuggestedWord);
@@ -101,7 +98,6 @@ public class ScreenProperty implements Initializable {
    * @param event take event
    */
   public void submit(ActionEvent event) {
-
     inputString = inputText.getText();
 
     try {
@@ -123,7 +119,6 @@ public class ScreenProperty implements Initializable {
     } catch (SQLException e) {
       e.getMessage();
     }
-
   }
 
   private void setHtml(String s) {
@@ -179,7 +174,6 @@ public class ScreenProperty implements Initializable {
    * Button to add/delete/modify database.
    */
   public void editButton() {
-
     try {
 
       Parent root1Parent =
@@ -230,7 +224,6 @@ public class ScreenProperty implements Initializable {
    * Display helps.
    */
   public void helpButtonClicked() {
-
     Alert alert7 = new Alert(AlertType.INFORMATION);
     alert7.setWidth(450);
     alert7.setHeight(500);
@@ -240,26 +233,20 @@ public class ScreenProperty implements Initializable {
     alert7.setContentText(
         "-Text your word in the search field and click Search to find word.\n\n-Click speak button to hear the word pronunciation.\n\n-Click Google translate button to use google translate if the word is not found or you want to translate a paragraph.\n\n-Click Edit Word button to add, delete or modify definition of the word.\n\n-Click Export in the top right of the screen to export file to .csv file.\n\n-Click history button on the bottom right of the screen to get recently searched words.");
     alert7.show();
-
   }
 
   /**
    * Display history.
    */
-
   public void historyButtonClicked() {
-
     Historybase.getHistoryData();
     try {
-
       Parent root1Parent =
           FXMLLoader.load(getClass().getResource("../resources/fxml/History.fxml"));
       Stage newStage = new Stage();
       Image icon = new Image("./resources/icon/historyicon.png");
       newStage.getIcons().add(icon);
       Scene scene1 = new Scene(root1Parent);
-      // scene1.getStylesheets()
-      // .add(getClass().getResource("../resources/fxml/EditDatabase.css").toExternalForm());
       newStage.setTitle("History.");
       newStage.setResizable(false);
       newStage.setScene(scene1);

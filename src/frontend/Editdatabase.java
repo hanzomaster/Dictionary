@@ -2,17 +2,16 @@ package frontend;
 
 import backend.database.Database;
 import backend.dictionary.WordSuggestion;
+import impl.org.controlsfx.autocompletion.AutoCompletionTextFieldBinding;
+import impl.org.controlsfx.autocompletion.SuggestionProvider;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.ResourceBundle;
 import java.util.Set;
-import impl.org.controlsfx.autocompletion.AutoCompletionTextFieldBinding;
-import impl.org.controlsfx.autocompletion.SuggestionProvider;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.web.HTMLEditor;
 
 public class Editdatabase implements Initializable {
@@ -37,16 +36,17 @@ public class Editdatabase implements Initializable {
     new AutoCompletionTextFieldBinding<>(word, provider);
   }
 
-  public void getTextinEditField(KeyEvent event) {
+  /**
+   * Update suggestion list as the user type by making new list based on word in the text field.
+   */
+  public void getTextinEditField() {
     String newText = word.getText();
 
     for (String relateword : WordSuggestion.getSuggestedWords()) {
       if (relateword.startsWith(newText) && !newText.equals("")) {
         newSuggestedWord.add(relateword);
       }
-
     }
-
     // https://stackoverflow.com/questions/45778462/update-autocomplete-javafx
     provider.clearSuggestions();
     provider.addPossibleSuggestions(newSuggestedWord);
@@ -57,7 +57,6 @@ public class Editdatabase implements Initializable {
    * Add new word and definition to database.
    */
   public void addButtonClicked() {
-
     inputWord = word.getText();
 
     inputDefinition = detailEditor.getHtmlText();
