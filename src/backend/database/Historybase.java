@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,4 +54,17 @@ public class Historybase {
     }
     return newHistory;
   }
+
+  public static void clearTheFile() {
+    // FileWriter fwOb;
+    try (FileWriter fwOb = new FileWriter("src\\resources\\History\\history.txt", false);
+        PrintWriter pwOb = new PrintWriter(fwOb, false)) {
+
+      pwOb.flush();
+    } catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+  }
+
 }

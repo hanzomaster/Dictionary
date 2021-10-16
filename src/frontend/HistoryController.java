@@ -2,13 +2,20 @@ package frontend;
 
 import backend.database.Historybase;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
+import javafx.stage.Stage;
 
 public class HistoryController implements Initializable {
 
@@ -35,4 +42,25 @@ public class HistoryController implements Initializable {
 
   }
 
+  /**
+   * Delete all history.
+   */
+  public void clearHistoryButton(ActionEvent event) {
+
+    Alert alert6 = new Alert(AlertType.CONFIRMATION);
+
+    alert6.setHeaderText("Do you really want to clear search history?");
+
+    Optional<ButtonType> result = alert6.showAndWait();
+
+    if (result.isPresent() && result.get() == ButtonType.OK) {
+
+      Historybase.clearTheFile();
+      ((Stage) (((Button) event.getSource()).getScene().getWindow())).close();
+      Alert alert5 = new Alert(Alert.AlertType.INFORMATION);
+      alert5.setContentText("Cleared.");
+      alert5.show();
+
+    }
+  }
 }
