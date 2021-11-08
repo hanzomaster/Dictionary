@@ -1,6 +1,6 @@
 # En-Vi Dictionary
 
-An OOP project for 2122I_INT2204_1
+An OOP project for 2122I_INT2204_1. Full project [here](https://gitlab.com/oop-project3/En-Vi_Dictionary)
 
 ## Authors
 
